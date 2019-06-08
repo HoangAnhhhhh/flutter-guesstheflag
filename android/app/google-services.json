@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "898291555589",
+    "firebase_url": "https://flutter-guesstheflag.firebaseio.com",
+    "project_id": "flutter-guesstheflag",
+    "storage_bucket": "flutter-guesstheflag.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898291555589:android:36c864147858a81e",
+        "android_client_info": {
+          "package_name": "com.guesstheflag.flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "898291555589-8bh8t8aqf4b4qdl5gai0rhg9o8unsirh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwxscRF1oe8p4Hifc6sGCKX9gs0boCQfs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "898291555589-8bh8t8aqf4b4qdl5gai0rhg9o8unsirh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

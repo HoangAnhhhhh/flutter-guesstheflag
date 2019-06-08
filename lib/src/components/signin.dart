@@ -1,5 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 class SignIn extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _SignInState();
@@ -77,6 +77,9 @@ class _SignInState extends State<SignIn> {
                     onTap: () {
                       print(this._email);
                       print(this._password);
+                      Firestore.instance.collection('title').document('title-doc').get().then((data) {
+                        print(data.data['title']);
+                      });
                     },
                     child: Container(
                       alignment: Alignment.center,

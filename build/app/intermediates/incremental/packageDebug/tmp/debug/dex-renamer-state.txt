@@ -1,4 +1,10 @@
-#Sat Jun 08 16:10:59 ICT 2019
-base.0=/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/transforms/dexMerger/debug/0
+#Sat Jun 08 19:22:19 ICT 2019
+path.2=classes3.dex
+path.1=classes2.dex
 path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
 renamed.0=classes.dex
+base.2=/home/hoanganh/Projects/home/backup/flutter-guesstheflag/build/app/intermediates/transforms/dexMerger/debug/0
+base.1=/home/hoanganh/Projects/home/backup/flutter-guesstheflag/build/app/intermediates/transforms/dexMerger/debug/0
+base.0=/home/hoanganh/Projects/home/backup/flutter-guesstheflag/build/app/intermediates/transforms/dexMerger/debug/0
