@@ -1,12 +1,14 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import '../components/home.dart';
+
 class SignIn extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _SignInState();
 }
 
 class _SignInState extends State<SignIn> {
-  String _email, _password;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,98 +46,67 @@ class _SignInState extends State<SignIn> {
                   const EdgeInsets.only(top: 20.0, left: 15.0, right: 15.0),
               child: Column(
                 children: <Widget>[
-                  TextField(
-                    decoration: InputDecoration(
-                      labelText: "Enter your email",
-                      labelStyle: TextStyle(color: Colors.white),
-                      border: OutlineInputBorder(),
-                    ),
-                    style: TextStyle(color: Colors.white),
-                    onSubmitted: (String email) {
-                      this._email = email;
-                    },
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      labelText: "Enter your password",
-                      labelStyle: TextStyle(color: Colors.white),
-                      border: OutlineInputBorder(),
-                    ),
-                    style: TextStyle(color: Colors.white),
-                    onSubmitted: (String password) {
-                      this._password = password;
-                    },
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      print(this._email);
-                      print(this._password);
-                      Firestore.instance.collection('title').document('title-doc').get().then((data) {
-                        print(data.data['title']);
-                      });
-                    },
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: 100.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(7.0),
-                          color: Colors.deepPurple),
-                      child: Text(
-                        'Sign In',
-                        textDirection: TextDirection.ltr,
-                        style: TextStyle(color: Colors.white, fontSize: 18.0),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 50.0,
-                  ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
+                      SizedBox(
+                        height: 30.0,
+                      ),
                       Container(
-                        alignment: Alignment.center,
                         width: double.infinity,
                         height: 50.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(7.0),
+                        child: RaisedButton(
                           color: Color(0xFFDF513B),
-                        ),
-                        child: Text(
-                          'Google',
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(color: Colors.white, fontSize: 18.0),
+                          splashColor: Colors.deepPurple[100],
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          child: Text('Login with Google',
+                              textDirection: TextDirection.ltr,
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 18.0)),
+                          onPressed: () async {
+                            GoogleSignInAccount googleAccount;
+                            try {
+                              googleAccount = await this._googleSignIn.signIn().then((user) => user);
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Home(googleAccount: googleAccount)));
+                            } catch (error) {
+                              print(error);
+                            }
+                            
+                          },
                         ),
                       ),
                       SizedBox(
                         height: 10.0,
                       ),
                       Container(
-                        alignment: Alignment.center,
                         width: double.infinity,
                         height: 50.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(7.0),
+                        child: RaisedButton(
                           color: Color(0xFF3B5998),
+                          splashColor: Colors.deepPurple[100],
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          child: Text('Login with Facebook',
+                              textDirection: TextDirection.ltr,
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 18.0)),
+                          onPressed: () {},
                         ),
-                        child: Text(
-                          'Facebook',
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(color: Colors.white, fontSize: 18.0),
-                        ),
-                      ),
+                      )
                     ],
                   )
                 ],
-              ))
+              )),
+          SizedBox(
+            height: 20.0,
+          ),
+          Center(
+            child: Text(
+              'Copyright ©2019 | Hoang Anh Author',
+              style: TextStyle(color: Colors.white, fontSize: 15.0),
+            ),
+          )
         ],
       ),
     );

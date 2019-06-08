@@ -1,27 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "/home/hoanganh/Projects/home/backup/flutter-guesstheflag/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
-                {
-                    "source": "/home/hoanganh/Projects/home/backup/flutter-guesstheflag/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "6",
-                        "endColumns": "12",
-                        "endOffsets": "347"
-                    },
-                    "to": {
-                        "startLines": "119",
-                        "startColumns": "4",
-                        "startOffsets": "7935",
-                        "endLines": "123",
-                        "endColumns": "12",
-                        "endOffsets": "8227"
-                    }
-                },
                 {
                     "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/2b364862106ae2c6155a6100e94bbd5b/res/values/values.xml",
                     "from": {
@@ -42,6 +23,42 @@
                     }
                 },
                 {
+                    "source": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/generated/res/google-services/debug/values/values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,314,396,500,603,723,827",
+                        "endColumns": "143,114,81,103,102,119,103,80",
+                        "endOffsets": "194,309,391,495,598,718,822,903"
+                    },
+                    "to": {
+                        "startLines": "110,111,112,113,114,115,116,117",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "7011,7155,7270,7352,7456,7559,7679,7783",
+                        "endColumns": "143,114,81,103,102,119,103,80",
+                        "endOffsets": "7150,7265,7347,7451,7554,7674,7778,7859"
+                    }
+                },
+                {
+                    "source": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "347"
+                    },
+                    "to": {
+                        "startLines": "119",
+                        "startColumns": "4",
+                        "startOffsets": "7935",
+                        "endLines": "123",
+                        "endColumns": "12",
+                        "endOffsets": "8227"
+                    }
+                },
+                {
                     "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/539f09e093f5d6b84f294e655f781fda/res/values/values.xml",
                     "from": {
                         "startLines": "4,7",
@@ -56,23 +73,6 @@
                         "startOffsets": "4540,5718",
                         "endColumns": "67,166",
                         "endOffsets": "4603,5880"
-                    }
-                },
-                {
-                    "source": "/home/hoanganh/Projects/home/backup/flutter-guesstheflag/build/app/generated/res/google-services/debug/values/values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,314,396,500,603,723,827",
-                        "endColumns": "143,114,81,103,102,119,103,80",
-                        "endOffsets": "194,309,391,495,598,718,822,903"
-                    },
-                    "to": {
-                        "startLines": "110,111,112,113,114,115,116,117",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "7011,7155,7270,7352,7456,7559,7679,7783",
-                        "endColumns": "143,114,81,103,102,119,103,80",
-                        "endOffsets": "7150,7265,7347,7451,7554,7674,7778,7859"
                     }
                 },
                 {

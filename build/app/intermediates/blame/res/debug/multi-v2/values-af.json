@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/hoanganh/Projects/home/backup/flutter-guesstheflag/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-af/values-af.xml",
+            "outputFile": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-af/values-af.xml",
             "map": [
                 {
                     "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/539f09e093f5d6b84f294e655f781fda/res/values-af/values.xml",
