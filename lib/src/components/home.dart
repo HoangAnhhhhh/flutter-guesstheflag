@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import '../components/level.dart';
+import '../components/highscore.dart';
 
 class Home extends StatefulWidget {
   final GoogleSignInAccount googleAccount;
@@ -12,6 +13,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final GoogleSignInAccount _googleAccount;
   int _selectedIndex = 0;
+  final List<Widget> _screens = <Widget>[
+    Level(),
+    HighScore()
+  ];
   _HomeState(this._googleAccount);
   @override
   Widget build(BuildContext context) {
@@ -47,7 +52,8 @@ class _HomeState extends State<Home> {
           ),
         ],
       )),
-      body: Text('Level Screen'),
+      // this._selectedIndex == 0 ? Level() : HighScore()
+      body: this._screens[this._selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),

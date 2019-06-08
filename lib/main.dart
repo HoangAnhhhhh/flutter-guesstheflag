@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'src/components/signin.dart';
+import 'src/components/play.dart';
 void main() => runApp(GuessTheFlag());
 
 class GuessTheFlag extends StatefulWidget{
@@ -13,6 +14,8 @@ class _GuessTheFlagState extends State<GuessTheFlag>{
     return MaterialApp(
       title: 'GuessTheFlag',
       debugShowCheckedModeBanner: false,
+      // Play(level: 'Easy')
+      // SignIn()
       home: SignIn(),
     );
   }
