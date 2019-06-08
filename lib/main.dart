@@ -16,7 +16,7 @@ class _GuessTheFlagState extends State<GuessTheFlag>{
       debugShowCheckedModeBanner: false,
       // Play(level: 'Easy')
       // SignIn()
-      home: SignIn(),
+      home: Play(level: 'Medium'),
     );
   }
 }

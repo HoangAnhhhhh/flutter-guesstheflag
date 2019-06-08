@@ -25,15 +25,6 @@ class Level extends StatelessWidget{
               Navigator.push(context, MaterialPageRoute(builder: (context) => Play(level: 'Medium')));
             },
           ),
-          RaisedButton(
-            color: Colors.deepPurpleAccent,
-            textColor: Colors.white,
-            splashColor: Colors.white,
-            child: Text('Hard'),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Play(level: 'Hard')));
-            },
-          ),
         ],
       ),
     );
