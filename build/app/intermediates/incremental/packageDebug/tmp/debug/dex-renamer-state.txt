@@ -1,4 +1,4 @@
-#Sat Jun 08 16:04:17 ICT 2019
+#Sat Jun 08 16:10:59 ICT 2019
 base.0=/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
