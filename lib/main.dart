@@ -15,7 +15,6 @@ class GuessTheFlag extends StatelessWidget{
       routes: {
         '/': (BuildContext context) => SignIn(),
         '/home': (BuildContext context) => Home(),
-        '/level': (BuildContext context) => Level(),
         '/highscore': (BuildContext context) => HighScore(),
       },
     );

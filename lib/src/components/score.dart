@@ -6,16 +6,8 @@ class Score extends StatelessWidget {
   Score({Key key, @required this.level, @required this.score})
       : super(key: key);
 
-  void googleAccount(){
-    GoogleSignInAccount googleSignInAccount;
-    print(googleSignInAccount.id);
-  }
-
-  
-  
   @override
   Widget build(BuildContext context) {
-    this.googleAccount();
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
@@ -41,7 +33,7 @@ class Score extends StatelessWidget {
         child: Icon(Icons.home),
         clipBehavior: Clip.antiAlias,
         onPressed: () {
-
+          Navigator.popUntil(context, ModalRoute.withName('/home'));
         },
       ),
     );

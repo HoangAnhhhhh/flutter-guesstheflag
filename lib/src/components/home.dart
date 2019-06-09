@@ -9,13 +9,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  GoogleSignInAccount googleSignInAccount;
   int _selectedIndex = 0;
   final List<Widget> _screens = <Widget>[Level(), HighScore()];
   _HomeState();
 
   @override
   Widget build(BuildContext context) {
-    GoogleSignInAccount _googleAccount = ModalRoute.of(context).settings.arguments;
+    googleSignInAccount = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
@@ -25,16 +26,16 @@ class _HomeState extends State<Home> {
         children: <Widget>[
           UserAccountsDrawerHeader(
               accountName: Text(
-                '${_googleAccount.displayName}',
+                '${googleSignInAccount.displayName}',
                 textDirection: TextDirection.ltr,
               ),
               accountEmail: Text(
-                '${_googleAccount.email}',
+                '${googleSignInAccount.email}',
                 textDirection: TextDirection.ltr,
               ),
               currentAccountPicture: CircleAvatar(
                 backgroundImage:
-                    NetworkImage('${_googleAccount.photoUrl}'),
+                    NetworkImage('${googleSignInAccount.photoUrl}'),
               )),
           ListTile(
             leading: Icon(Icons.home),

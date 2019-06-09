@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/components/score.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'dart:math';
 import 'dart:async';
 import '../models/flag.dart';
@@ -91,7 +92,7 @@ class _PlayState extends State<Play> {
           } else {
             _isAnswerButtonDisabled = true;
             this._buildSnackBarWithBuilder(
-                context, 'Yay!, You did a great job! Please wait us a moment');
+                context, 'Yay! You did a great job! Please wait us a moment');
           }
         });
       }
@@ -106,7 +107,7 @@ class _PlayState extends State<Play> {
           } else {
             _isAnswerButtonDisabled = true;
             this._buildSnackBarWithBuilder(
-                context, 'Yay!, You did a great job! Please wait us a moment');
+                context, 'Yay! You did a great job! Please wait us a moment');
           }
         });
       }

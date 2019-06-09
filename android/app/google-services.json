@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "898291555589-te94dqal5u40e90k3to0d25df2cg8lh4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.guesstheflag.flutter_app",
+            "certificate_hash": "2224c392ff74916a36933161ad1d37147c615866"
+          }
+        },
+        {
           "client_id": "898291555589-8bh8t8aqf4b4qdl5gai0rhg9o8unsirh.apps.googleusercontent.com",
           "client_type": 3
         }
