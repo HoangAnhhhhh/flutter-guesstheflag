@@ -3,4 +3,6 @@ class Flag{
   Flag(this._url);
 
   String getURL() => this._url;
+
+  String getName() => this._url.split('/').last.split('.').first;
 }

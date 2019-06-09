@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 import 'dart:async';
 import '../models/flag.dart';
 import '../models/easy.dart';
@@ -6,7 +7,6 @@ import '../models/medium.dart';
 
 class Play extends StatefulWidget {
   final String level;
-
   Play({Key key, @required this.level}) : super(key: key);
   @override
   State<StatefulWidget> createState() => _PlayState(this.level);
@@ -14,48 +14,57 @@ class Play extends StatefulWidget {
 
 class _PlayState extends State<Play> {
   final String _level;
-  List<Flag> _flagList;
   int _indexFlag = 0;
   int _timeEachQuestion = 5;
+  List<Flag> _flagList;
+  List<String> _answerList;
   _PlayState(this._level);
 
   String _isEaseOrMedium() => this._level == 'Easy' ? 'Easy' : 'Medium';
+
+  List<Flag> _initFlagList(String level) => this._isEaseOrMedium() == 'Easy'
+      ? this._flagList = EasyLevel.getFlags()
+      : this._flagList = MediumLevel.getFlags();
+
+  List<String> _prepareAnswers() {
+    String a, b, c, d;
+    List<String> listAnswer = <String>[];
+    a = this._flagList[this._indexFlag].getName();
+    do {
+      b = this._flagList[Random().nextInt(this._flagList.length)].getName();
+    } while (b == a);
+    do {
+      c = this._flagList[Random().nextInt(this._flagList.length)].getName();
+    } while (c == a || c == b);
+
+    do {
+      d = this._flagList[Random().nextInt(this._flagList.length)].getName();
+    } while (d == a || d == b || d == c);
+    listAnswer.addAll([a, b, c, d]);
+    listAnswer.shuffle();
+    return listAnswer;
+  }
 
   @override
   void initState() {
     super.initState();
     print('initState');
-    if (this._isEaseOrMedium() == 'Easy') {
-      this._flagList = EasyLevel.getFlags();
-      Timer.periodic(Duration(seconds: 1), (Timer t) {
-        setState(() {
-          this._timeEachQuestion -= 1;
-          if (this._timeEachQuestion == 0) {
-            this._timeEachQuestion = 5;
-            print('Next Question');
-            if (_indexFlag < this._flagList.length - 1) {
-              _indexFlag++;
-            } else
-              t.cancel();
-          }
-        });
+    this._initFlagList(this._level);
+    this._answerList = this._prepareAnswers();
+    Timer.periodic(Duration(seconds: 1), (Timer t) {
+      setState(() {
+        this._timeEachQuestion -= 1;
+        if (this._timeEachQuestion == 0) {
+          this._timeEachQuestion = 5;
+          print('Next Question');
+          if (_indexFlag < this._flagList.length - 1) {
+            _indexFlag++;
+            this._answerList = this._prepareAnswers();
+          } else
+            t.cancel();
+        }
       });
-    } else if (this._isEaseOrMedium() == 'Medium') {
-      this._flagList = MediumLevel.getFlags();
-      Timer.periodic(Duration(seconds: 1), (Timer t) {
-        setState(() {
-          this._timeEachQuestion -= 1;
-          if (this._timeEachQuestion == 0) {
-            this._timeEachQuestion = 5;
-            print('Next Question');
-            if (_indexFlag < this._flagList.length - 1) {
-              _indexFlag++;
-            } else
-              t.cancel();
-          }
-        });
-      });
-    }
+    });
   }
 
   @override
@@ -112,7 +121,7 @@ class _PlayState extends State<Play> {
                 RaisedButton(
                   color: Colors.amberAccent,
                   splashColor: Colors.deepPurpleAccent,
-                  child: Text('Pass'),
+                  child: Text('Point: 0'),
                   onPressed: () {},
                 ),
               ],
@@ -133,7 +142,7 @@ class _PlayState extends State<Play> {
                         padding: EdgeInsets.only(left: 35.0, right: 35.0),
                         child: RaisedButton(
                           color: Colors.amberAccent,
-                          child: Text('Answer 1'),
+                          child: Text('${this._answerList[0]}'),
                           onPressed: () {},
                         ),
                       ),
@@ -144,7 +153,7 @@ class _PlayState extends State<Play> {
                         padding: const EdgeInsets.only(left: 35.0, right: 35.0),
                         child: RaisedButton(
                           color: Colors.amberAccent,
-                          child: Text('Answer 2'),
+                          child: Text('${this._answerList[1]}'),
                           onPressed: () {},
                         ),
                       ),
@@ -155,7 +164,7 @@ class _PlayState extends State<Play> {
                         padding: const EdgeInsets.only(left: 35.0, right: 35.0),
                         child: RaisedButton(
                           color: Colors.amberAccent,
-                          child: Text('Answer 3'),
+                          child: Text('${this._answerList[2]}'),
                           onPressed: () {},
                         ),
                       ),
@@ -166,7 +175,7 @@ class _PlayState extends State<Play> {
                         padding: const EdgeInsets.only(left: 35.0, right: 35.0),
                         child: RaisedButton(
                           color: Colors.amberAccent,
-                          child: Text('Answer 4'),
+                          child: Text('${this._answerList[3]}'),
                           onPressed: () {},
                         ),
                       ),
