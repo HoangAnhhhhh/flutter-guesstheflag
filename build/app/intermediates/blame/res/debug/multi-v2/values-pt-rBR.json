@@ -4,7 +4,24 @@
             "outputFile": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rBR/values-pt-rBR.xml",
             "map": [
                 {
-                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/c0b4b6ba5574c38a05270151e3cefcf2/res/values-pt-rBR/values-pt-rBR.xml",
+                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.2.0.aar/4a2ef163522826a6814d39898b97be4c/res/values-pt-rBR/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "203",
+                        "endOffsets": "454"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1275",
+                        "endColumns": "203",
+                        "endOffsets": "1474"
+                    }
+                },
+                {
+                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/f959c8396e2ac087a15d3be6179d1309/res/values-pt-rBR/values-pt-rBR.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/2b364862106ae2c6155a6100e94bbd5b/res/values-pt-rBR/values.xml",
+                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/de037b8a7fd4f753047c3de983bb4b78/res/values-pt-rBR/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -35,23 +52,6 @@
                         "startOffsets": "105,212,392,521,631,857,989,1141,1479,1708,1818,2013,2145,2361,2548,2647,2743",
                         "endColumns": "106,179,128,109,225,131,151,133,228,109,194,131,215,186,98,95,112",
                         "endOffsets": "207,387,516,626,852,984,1136,1270,1703,1813,2008,2140,2356,2543,2642,2738,2851"
-                    }
-                },
-                {
-                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/539f09e093f5d6b84f294e655f781fda/res/values-pt-rBR/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "203",
-                        "endOffsets": "454"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1275",
-                        "endColumns": "203",
-                        "endOffsets": "1474"
                     }
                 }
             ]

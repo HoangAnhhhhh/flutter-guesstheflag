@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../components/home.dart';
 
-class SignIn extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _SignInState();
-}
-
-class _SignInState extends State<SignIn> {
+class SignIn extends StatelessWidget {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   @override
   Widget build(BuildContext context) {
@@ -67,12 +62,16 @@ class _SignInState extends State<SignIn> {
                           onPressed: () async {
                             GoogleSignInAccount googleAccount;
                             try {
-                              googleAccount = await this._googleSignIn.signIn().then((user) => user);
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => Home(googleAccount: googleAccount)));
+                              googleAccount = await this
+                                  ._googleSignIn
+                                  .signIn()
+                                  .then((user) => user);
+                              //Navigator.push(context, MaterialPageRoute(builder: (context) => Home(googleAccount: googleAccount)));
+                              Navigator.pushNamed(context, '/home',
+                                  arguments: googleAccount);
                             } catch (error) {
                               print(error);
                             }
-                            
                           },
                         ),
                       ),

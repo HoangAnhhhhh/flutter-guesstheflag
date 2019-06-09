@@ -4,22 +4,18 @@ import '../components/level.dart';
 import '../components/highscore.dart';
 
 class Home extends StatefulWidget {
-  final GoogleSignInAccount googleAccount;
-  Home({Key key, @required this.googleAccount}) : super(key: key);
   @override
-  State<StatefulWidget> createState() => _HomeState(this.googleAccount);
+  State<StatefulWidget> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  final GoogleSignInAccount _googleAccount;
   int _selectedIndex = 0;
-  final List<Widget> _screens = <Widget>[
-    Level(),
-    HighScore()
-  ];
-  _HomeState(this._googleAccount);
+  final List<Widget> _screens = <Widget>[Level(), HighScore()];
+  _HomeState();
+
   @override
   Widget build(BuildContext context) {
+    GoogleSignInAccount _googleAccount = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
@@ -29,26 +25,36 @@ class _HomeState extends State<Home> {
         children: <Widget>[
           UserAccountsDrawerHeader(
               accountName: Text(
-                '${this._googleAccount.displayName}',
+                '${_googleAccount.displayName}',
                 textDirection: TextDirection.ltr,
               ),
               accountEmail: Text(
-                '${this._googleAccount.email}',
+                '${_googleAccount.email}',
                 textDirection: TextDirection.ltr,
               ),
               currentAccountPicture: CircleAvatar(
                 backgroundImage:
-                    NetworkImage('${this._googleAccount.photoUrl}'),
+                    NetworkImage('${_googleAccount.photoUrl}'),
               )),
           ListTile(
             leading: Icon(Icons.home),
             title: Text('Home'),
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              setState(() {
+                this._selectedIndex = 0;
+                Navigator.pop(context);
+              });
+            },
           ),
           ListTile(
             leading: Icon(Icons.score),
             title: Text('HighScore'),
-            onTap: () {},
+            onTap: () {
+              setState(() {
+                this._selectedIndex = 1;
+                Navigator.pop(context);
+              });
+            },
           ),
         ],
       )),

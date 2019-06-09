@@ -4,7 +4,7 @@
             "outputFile": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/c0b4b6ba5574c38a05270151e3cefcf2/res/values-v16/values-v16.xml",
+                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/f959c8396e2ac087a15d3be6179d1309/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

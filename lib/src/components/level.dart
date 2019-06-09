@@ -14,6 +14,7 @@ class Level extends StatelessWidget{
             child: Text('Easy'),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => Play(level: 'Easy')));
+              // Navigator.pushNamed(context, 'level', arguments: 'Easy');
             },
           ),
           RaisedButton(
@@ -23,6 +24,7 @@ class Level extends StatelessWidget{
             child: Text('Medium'),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => Play(level: 'Medium')));
+              // Navigator.pushNamed(context, 'level', arguments: 'Medium');
             },
           ),
         ],

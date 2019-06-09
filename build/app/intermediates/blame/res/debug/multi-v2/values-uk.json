@@ -4,7 +4,7 @@
             "outputFile": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-uk/values-uk.xml",
             "map": [
                 {
-                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/539f09e093f5d6b84f294e655f781fda/res/values-uk/values.xml",
+                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.2.0.aar/4a2ef163522826a6814d39898b97be4c/res/values-uk/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/2b364862106ae2c6155a6100e94bbd5b/res/values-uk/values.xml",
+                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/de037b8a7fd4f753047c3de983bb4b78/res/values-uk/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/c0b4b6ba5574c38a05270151e3cefcf2/res/values-uk/values-uk.xml",
+                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/f959c8396e2ac087a15d3be6179d1309/res/values-uk/values-uk.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
