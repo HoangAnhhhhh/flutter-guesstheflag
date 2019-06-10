@@ -9,14 +9,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  FirebaseUser googleUser;
+  FirebaseUser socialUser;
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   int _selectedIndex = 0;
   final List<Widget> _screens = <Widget>[Level(), History()];
   _HomeState();
 
   @override
   Widget build(BuildContext context) {
-    googleUser = ModalRoute.of(context).settings.arguments;
+    socialUser = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
@@ -26,16 +27,16 @@ class _HomeState extends State<Home> {
         children: <Widget>[
           UserAccountsDrawerHeader(
               accountName: Text(
-                '${googleUser?.displayName ?? "unknown"} ',
+                '${socialUser?.displayName ?? "unknown"} ',
                 textDirection: TextDirection.ltr,
               ),
               accountEmail: Text(
-                '${googleUser?.email ?? "unknown"}',
+                '${socialUser?.email ?? "unknown"}',
                 textDirection: TextDirection.ltr,
               ),
               currentAccountPicture: CircleAvatar(
-                backgroundImage:
-                    NetworkImage('${googleUser?.photoUrl ?? "http://dkpp.go.id/wp-content/uploads/2018/10/2-2.jpg"}'),
+                backgroundImage: NetworkImage(
+                    '${socialUser?.photoUrl ?? "http://dkpp.go.id/wp-content/uploads/2018/10/2-2.jpg"}'),
               )),
           ListTile(
             leading: Icon(Icons.home),
@@ -55,6 +56,17 @@ class _HomeState extends State<Home> {
                 this._selectedIndex = 1;
                 Navigator.pop(context);
               });
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.backspace),
+            title: Text('Log out'),
+            onTap: () {
+              firebaseAuth
+                  .signOut()
+                  .then((_) => print('Log out'))
+                  .whenComplete(() => Navigator.popUntil(context, ModalRoute.withName('/')))
+                  .catchError((e) => print(e));
             },
           ),
         ],

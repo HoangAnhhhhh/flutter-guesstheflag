@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../components/home.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    GoogleSignIn _googleSignIn = GoogleSignIn();
+    FacebookLogin facebookLogin = FacebookLogin();
+    FirebaseAuth _auth = FirebaseAuth.instance;
+    FirebaseUser socialUser;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       resizeToAvoidBottomPadding: false,
@@ -60,8 +64,6 @@ class SignIn extends StatelessWidget {
                                   color: Colors.white, fontSize: 18.0)),
                           onPressed: () async {
                             try {
-                              final GoogleSignIn _googleSignIn = GoogleSignIn();
-                              final FirebaseAuth _auth = FirebaseAuth.instance;
                               final GoogleSignInAccount googleUser =
                                   await _googleSignIn.signIn();
                               final GoogleSignInAuthentication googleAuth =
@@ -70,11 +72,11 @@ class SignIn extends StatelessWidget {
                                   GoogleAuthProvider.getCredential(
                                       accessToken: googleAuth.accessToken,
                                       idToken: googleAuth.idToken);
-                              final FirebaseUser user =
+                              socialUser =
                                   await _auth.signInWithCredential(credential);
                               //   Navigator.push(context, MaterialPageRoute(builder: (context) => Home(googleAccount: googleAccount)));
                               Navigator.pushNamed(context, '/home',
-                                  arguments: user);
+                                  arguments: socialUser);
                             } catch (e) {
                               print(e);
                             }
@@ -96,7 +98,28 @@ class SignIn extends StatelessWidget {
                               textDirection: TextDirection.ltr,
                               style: TextStyle(
                                   color: Colors.white, fontSize: 18.0)),
-                          onPressed: () {},
+                          onPressed: () async {
+                            final result = await facebookLogin
+                                .logInWithReadPermissions(
+                                    ['email', 'public_profile']);
+
+                            switch (result.status) {
+                              case FacebookLoginStatus.loggedIn:
+                                final AuthCredential credential =
+                                    FacebookAuthProvider.getCredential(
+                                        accessToken: result.accessToken.token);
+                                socialUser = await _auth
+                                    .signInWithCredential(credential);
+                                Navigator.pushNamed(context, '/home',
+                                    arguments: socialUser);
+                                break;
+                              case FacebookLoginStatus.cancelledByUser:
+                                break;
+                              case FacebookLoginStatus.error:
+                                print(result.errorMessage);
+                                break;
+                            }
+                          },
                         ),
                       )
                     ],

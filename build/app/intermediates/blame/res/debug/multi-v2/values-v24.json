@@ -4,6 +4,16 @@
             "outputFile": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
+                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0-rc01.aar/9365fc93c6afeba053798ae6c17e17bf/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                },
+                {
                     "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/media-1.0.0-rc01.aar/43aa4761feb11ab87c3c9e93107bf9fa/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
@@ -11,6 +21,13 @@
                         "startOffsets": "55,121,182,248",
                         "endColumns": "65,60,65,66",
                         "endOffsets": "116,177,243,310"
+                    },
+                    "to": {
+                        "startLines": "4,5,6,7",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "347,413,474,540",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "408,469,535,602"
                     }
                 }
             ]
