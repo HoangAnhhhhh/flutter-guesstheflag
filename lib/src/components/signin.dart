@@ -4,11 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../components/home.dart';
 
 class SignIn extends StatelessWidget {
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple[300],
       resizeToAvoidBottomInset: false,
       resizeToAvoidBottomPadding: false,
       body: Column(
@@ -74,7 +72,6 @@ class SignIn extends StatelessWidget {
                                       idToken: googleAuth.idToken);
                               final FirebaseUser user =
                                   await _auth.signInWithCredential(credential);
-                              print(user);
                               //   Navigator.push(context, MaterialPageRoute(builder: (context) => Home(googleAccount: googleAccount)));
                               Navigator.pushNamed(context, '/home',
                                   arguments: user);

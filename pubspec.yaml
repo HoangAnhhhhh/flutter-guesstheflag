@@ -46,6 +46,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/images/signin/logo.png
+   - assets/images/signin/bg.jpeg
+   - assets/images/home/easy.jpeg
+   - assets/images/home/medium.jpeg
    - assets/flags/easy/brazil.png
    - assets/flags/easy/china.jpg
    - assets/flags/easy/japan.jpg
@@ -56,6 +59,7 @@ flutter:
    - assets/flags/medium/germany.png
    - assets/flags/medium/hongkong.png
    - assets/flags/medium/iraq.png
+   
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

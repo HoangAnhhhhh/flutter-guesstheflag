@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/src/components/score.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'dart:math';
 import 'dart:async';
 import '../models/flag.dart';
@@ -14,10 +13,12 @@ class Play extends StatefulWidget {
   State<StatefulWidget> createState() => _PlayState(this.level);
 }
 
-class _PlayState extends State<Play> {
+class _PlayState extends State<Play> with WidgetsBindingObserver {
   final String _level;
   int _indexFlag = 0;
   int _timeEachQuestion = 10;
+  int _timeEachQuestionTemp = 0;
+  bool _isPaused = false;
   List<Flag> _flagList;
   List<String> _answerList;
   int _point = 0;
@@ -54,7 +55,7 @@ class _PlayState extends State<Play> {
 
   Timer _nextQuestion() {
     return Timer.periodic(Duration(seconds: 1), (Timer t) {
-      if (mounted) {
+      if (mounted && this._isPaused == false) {
         setState(() {
           this._timeEachQuestion -= 1;
           if (this._timeEachQuestion == 0) {
@@ -114,6 +115,23 @@ class _PlayState extends State<Play> {
     }
   }
 
+  void filter2WrongAnswers(indexFlag) {
+    // var rightAnswerIndex =
+    //     this._answerList.indexOf(this._flagList[indexFlag].getName());
+    // var index1 = rightAnswerIndex;
+    // var index2 = rightAnswerIndex;
+
+    // while () {
+    //   index1 = Random().nextInt(this._answerList.length);
+    //   index2 = Random().nextInt(this._answerList.length);
+    //   print(rightAnswerIndex);
+    //   print(index1);
+    //   print(index2);
+    // }
+
+    // return [index1, index2];
+  }
+
   void _isClick5050Button() {
     if (mounted) {
       setState(() {
@@ -126,8 +144,11 @@ class _PlayState extends State<Play> {
   Widget _build5050Button() {
     return RaisedButton(
       color: Colors.amberAccent,
-      splashColor: Colors.deepPurpleAccent,
-      child: Text(this._is5050ButtonDisabled ? "50/50" : "50/50"),
+      splashColor: Colors.black38,
+      child: Text(
+        this._is5050ButtonDisabled ? "50/50" : "50/50",
+        style: TextStyle(color: Colors.black),
+      ),
       onPressed: this._is5050ButtonDisabled ? null : this._isClick5050Button,
     );
   }
@@ -138,8 +159,9 @@ class _PlayState extends State<Play> {
       builder: (BuildContext context) {
         return RaisedButton(
           color: Colors.amberAccent,
-          splashColor: Colors.deepPurpleAccent,
-          child: Text(this._isAnswerButtonDisabled ? answer : answer),
+          splashColor: Colors.black38,
+          child: Text(this._isAnswerButtonDisabled ? answer : answer,
+              style: TextStyle(color: Colors.black)),
           onPressed: this._isAnswerButtonDisabled
               ? null
               : () {
@@ -155,7 +177,11 @@ class _PlayState extends State<Play> {
   // I have to use BuildContext to reach out the nearest Scaffold context
   void _buildSnackBarWithBuilder(BuildContext context, String message) {
     final snackBar = SnackBar(
-      content: Text('$message'),
+      backgroundColor: Colors.amberAccent,
+      content: Text(
+        '$message',
+        style: TextStyle(color: Colors.black),
+      ),
     );
     Scaffold.of(context).showSnackBar(snackBar);
   }
@@ -163,6 +189,7 @@ class _PlayState extends State<Play> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     print('initState');
     // initialize first question of the game
     this._initFlagList(this._level);
@@ -197,7 +224,8 @@ class _PlayState extends State<Play> {
                       style: TextStyle(fontSize: 30.0),
                     ),
                     decoration: BoxDecoration(
-                        border: Border.all(), shape: BoxShape.circle),
+                        border: Border.all(color: Colors.grey[350]),
+                        shape: BoxShape.circle),
                   ),
                 ),
                 Expanded(
@@ -218,12 +246,8 @@ class _PlayState extends State<Play> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 this._build5050Button(),
-                RaisedButton(
-                  color: Colors.amberAccent,
-                  splashColor: Colors.deepPurpleAccent,
-                  child: Text('Point: ${this._point}'),
-                  onPressed: null,
-                ),
+                Text('${this._point}/5',
+                    style: TextStyle(fontSize: 20.0, color: Colors.amber))
               ],
             ),
             SizedBox(height: 40.0),
@@ -277,6 +301,28 @@ class _PlayState extends State<Play> {
   @override
   void dispose() {
     super.dispose();
+    WidgetsBinding.instance.removeObserver(this);
     print('disposeState: play');
+  }
+
+  AppLifecycleState appLifecycleState;
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.paused:
+        setState(() {
+          this._isPaused = true;
+          this._timeEachQuestionTemp = this._timeEachQuestion;
+        });
+        break;
+      case AppLifecycleState.resumed:
+        setState(() {
+          this._isPaused = false;
+          this._timeEachQuestion = this._timeEachQuestionTemp;
+        });
+        break;
+      default:
+        break;
+    }
   }
 }

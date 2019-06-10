@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../components/level.dart';
-import '../components/highscore.dart';
+import '../components/history.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,7 +11,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   FirebaseUser googleUser;
   int _selectedIndex = 0;
-  final List<Widget> _screens = <Widget>[Level(), HighScore()];
+  final List<Widget> _screens = <Widget>[Level(), History()];
   _HomeState();
 
   @override
@@ -26,16 +26,16 @@ class _HomeState extends State<Home> {
         children: <Widget>[
           UserAccountsDrawerHeader(
               accountName: Text(
-                '${googleUser.displayName}',
+                '${googleUser?.displayName ?? "unknown"} ',
                 textDirection: TextDirection.ltr,
               ),
               accountEmail: Text(
-                '${googleUser.email}',
+                '${googleUser?.email ?? "unknown"}',
                 textDirection: TextDirection.ltr,
               ),
               currentAccountPicture: CircleAvatar(
                 backgroundImage:
-                    NetworkImage('${googleUser.photoUrl}'),
+                    NetworkImage('${googleUser?.photoUrl ?? "http://dkpp.go.id/wp-content/uploads/2018/10/2-2.jpg"}'),
               )),
           ListTile(
             leading: Icon(Icons.home),
@@ -48,8 +48,8 @@ class _HomeState extends State<Home> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.score),
-            title: Text('HighScore'),
+            leading: Icon(Icons.history),
+            title: Text('History'),
             onTap: () {
               setState(() {
                 this._selectedIndex = 1;
@@ -65,10 +65,10 @@ class _HomeState extends State<Home> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.score), title: Text('HighScore')),
+              icon: Icon(Icons.history), title: Text('History')),
         ],
         currentIndex: this._selectedIndex,
-        selectedItemColor: Colors.purple,
+        selectedItemColor: Colors.amberAccent,
         onTap: (int index) {
           setState(() {
             this._selectedIndex = index;

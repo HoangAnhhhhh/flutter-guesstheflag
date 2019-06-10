@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../models/user.dart';
 
 class Score extends StatelessWidget {
   final String level;
@@ -32,13 +34,32 @@ class Score extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         tooltip: 'Back to Home',
         child: Icon(Icons.home),
+        backgroundColor: Colors.amberAccent,
         clipBehavior: Clip.antiAlias,
         onPressed: () {
-          FirebaseAuth.instance.onAuthStateChanged.listen((user){
-            if(user != null){
-              print(user);
-            } else print('null user');
-          });
+          // FirebaseAuth.instance.onAuthStateChanged
+          //     .listen((FirebaseUser firebaseUser) {
+          //   if (firebaseUser != null) {
+          //     User userFromClass = User.fromJSON(firebaseUser);
+          //     CollectionReference userScoreCollection =
+          //         Firestore.instance.collection('user-score');
+
+          //     userScoreCollection.getDocuments().then((snapshot) {
+          //       snapshot.documents.forEach((user) {
+          //         String emailAlreadyExist = user.data['email'];
+          //         String newComerEmail = firebaseUser.email;
+          //         if (emailAlreadyExist == newComerEmail) {
+          //           userScoreCollection
+          //               .document(user.documentID)
+          //               .updateData({'score': this.score});
+          //         } else
+          //           userScoreCollection.add(userFromClass.userJSON(this.score));
+          //       });
+          //     }).whenComplete(() =>
+          //         Navigator.popUntil(context, ModalRoute.withName('/home')));
+          //   } else
+          //     print('null user');
+          // });
           Navigator.popUntil(context, ModalRoute.withName('/home'));
         },
       ),
