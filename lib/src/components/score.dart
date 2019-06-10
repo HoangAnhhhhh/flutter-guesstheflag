@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 class Score extends StatelessWidget {
   final String level;
   final int score;
@@ -33,6 +34,11 @@ class Score extends StatelessWidget {
         child: Icon(Icons.home),
         clipBehavior: Clip.antiAlias,
         onPressed: () {
+          FirebaseAuth.instance.onAuthStateChanged.listen((user){
+            if(user != null){
+              print(user);
+            } else print('null user');
+          });
           Navigator.popUntil(context, ModalRoute.withName('/home'));
         },
       ),

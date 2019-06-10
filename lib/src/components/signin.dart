@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../components/home.dart';
 
 class SignIn extends StatelessWidget {
@@ -60,17 +61,25 @@ class SignIn extends StatelessWidget {
                               style: TextStyle(
                                   color: Colors.white, fontSize: 18.0)),
                           onPressed: () async {
-                            GoogleSignInAccount googleAccount;
                             try {
-                              googleAccount = await this
-                                  ._googleSignIn
-                                  .signIn()
-                                  .then((user) => user);
-                              //Navigator.push(context, MaterialPageRoute(builder: (context) => Home(googleAccount: googleAccount)));
+                              final GoogleSignIn _googleSignIn = GoogleSignIn();
+                              final FirebaseAuth _auth = FirebaseAuth.instance;
+                              final GoogleSignInAccount googleUser =
+                                  await _googleSignIn.signIn();
+                              final GoogleSignInAuthentication googleAuth =
+                                  await googleUser.authentication;
+                              final AuthCredential credential =
+                                  GoogleAuthProvider.getCredential(
+                                      accessToken: googleAuth.accessToken,
+                                      idToken: googleAuth.idToken);
+                              final FirebaseUser user =
+                                  await _auth.signInWithCredential(credential);
+                              print(user);
+                              //   Navigator.push(context, MaterialPageRoute(builder: (context) => Home(googleAccount: googleAccount)));
                               Navigator.pushNamed(context, '/home',
-                                  arguments: googleAccount);
-                            } catch (error) {
-                              print(error);
+                                  arguments: user);
+                            } catch (e) {
+                              print(e);
                             }
                           },
                         ),

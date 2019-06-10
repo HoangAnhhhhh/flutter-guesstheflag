@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../components/level.dart';
 import '../components/highscore.dart';
 
@@ -9,14 +9,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  GoogleSignInAccount googleSignInAccount;
+  FirebaseUser googleUser;
   int _selectedIndex = 0;
   final List<Widget> _screens = <Widget>[Level(), HighScore()];
   _HomeState();
 
   @override
   Widget build(BuildContext context) {
-    googleSignInAccount = ModalRoute.of(context).settings.arguments;
+    googleUser = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
@@ -26,16 +26,16 @@ class _HomeState extends State<Home> {
         children: <Widget>[
           UserAccountsDrawerHeader(
               accountName: Text(
-                '${googleSignInAccount.displayName}',
+                '${googleUser.displayName}',
                 textDirection: TextDirection.ltr,
               ),
               accountEmail: Text(
-                '${googleSignInAccount.email}',
+                '${googleUser.email}',
                 textDirection: TextDirection.ltr,
               ),
               currentAccountPicture: CircleAvatar(
                 backgroundImage:
-                    NetworkImage('${googleSignInAccount.photoUrl}'),
+                    NetworkImage('${googleUser.photoUrl}'),
               )),
           ListTile(
             leading: Icon(Icons.home),
