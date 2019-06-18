@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../components/level.dart';
 import '../components/history.dart';
 
@@ -12,8 +13,28 @@ class _HomeState extends State<Home> {
   FirebaseUser socialUser;
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   int _selectedIndex = 0;
-  final List<Widget> _screens = <Widget>[Level(), History()];
-  _HomeState();
+  List<Widget> _screens = <Widget>[Level(), History()];
+
+  @override
+  void initState() {
+    super.initState();
+    firebaseAuth.onAuthStateChanged.listen((FirebaseUser firebaseUser) {
+      if (firebaseUser != null) {
+        Firestore.instance
+            .collection('history')
+            .where('userID', isEqualTo: firebaseUser.uid)
+            .getDocuments()
+            .then((userHistory) {
+          if (userHistory != null) {
+            List<DocumentSnapshot> histories = userHistory.documents;
+            print(histories[0].data);
+            this._screens = <Widget>[Level(), History(userHistory: histories)];
+          } else
+            this._screens = <Widget>[Level(), History(userHistory: [])];
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +86,8 @@ class _HomeState extends State<Home> {
               firebaseAuth
                   .signOut()
                   .then((_) => print('Log out'))
-                  .whenComplete(() => Navigator.popUntil(context, ModalRoute.withName('/')))
+                  .whenComplete(() =>
+                      Navigator.popUntil(context, ModalRoute.withName('/')))
                   .catchError((e) => print(e));
             },
           ),

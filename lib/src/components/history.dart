@@ -1,17 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class History extends StatelessWidget {
-  final items = List<String>.generate(25, (i) => "Item $i");
+  final List<DocumentSnapshot> userHistory;
+  History({Key key, this.userHistory}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: items.length,
+      itemCount: this.userHistory.length,
       itemBuilder: (context, index) {
         return ListTile(
           leading: Icon(Icons.history),
-          title: Text('Score: 0'),
-          subtitle: Text('Level: '),
-          trailing: Text('12/09/2019'),
+          title: Text('Score: ${this.userHistory[index].data['score']}'),
+          subtitle: Text('Level: ${this.userHistory[index].data['level']}'),
+          trailing: Text('${this.userHistory[index].data['dateCreated']}'),
         );
       },
     );

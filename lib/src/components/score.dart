@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/user.dart';
+import '../models/history.dart';
 
 class Score extends StatelessWidget {
   final String level;
   final int score;
+  History historyFromClass;
+  CollectionReference historyCollection =
+      Firestore.instance.collection('history');
   Score({Key key, @required this.level, @required this.score})
       : super(key: key);
 
@@ -37,29 +40,19 @@ class Score extends StatelessWidget {
         backgroundColor: Colors.amberAccent,
         clipBehavior: Clip.antiAlias,
         onPressed: () {
-          // FirebaseAuth.instance.onAuthStateChanged
-          //     .listen((FirebaseUser firebaseUser) {
-          //   if (firebaseUser != null) {
-          //     User userFromClass = User.fromJSON(firebaseUser);
-          //     CollectionReference userScoreCollection =
-          //         Firestore.instance.collection('user-score');
-
-          //     userScoreCollection.getDocuments().then((snapshot) {
-          //       snapshot.documents.forEach((user) {
-          //         String emailAlreadyExist = user.data['email'];
-          //         String newComerEmail = firebaseUser.email;
-          //         if (emailAlreadyExist == newComerEmail) {
-          //           userScoreCollection
-          //               .document(user.documentID)
-          //               .updateData({'score': this.score});
-          //         } else
-          //           userScoreCollection.add(userFromClass.userJSON(this.score));
-          //       });
-          //     }).whenComplete(() =>
-          //         Navigator.popUntil(context, ModalRoute.withName('/home')));
-          //   } else
-          //     print('null user');
-          // });
+          FirebaseAuth.instance.onAuthStateChanged
+              .listen((FirebaseUser firebaseUser) {
+            if (firebaseUser != null) {
+              String dateTime =
+                  DateTime.now().toLocal().toString();
+              historyFromClass =
+                  History(firebaseUser.uid, dateTime, this.score, this.level);
+              historyCollection.add(historyFromClass.toJSON()).whenComplete(
+                  () => Navigator.popUntil(
+                      context, ModalRoute.withName('/home')));
+            } else
+              print('null user');
+          });
           Navigator.popUntil(context, ModalRoute.withName('/home'));
         },
       ),

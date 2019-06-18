@@ -325,4 +325,9 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
         break;
     }
   }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
 }
