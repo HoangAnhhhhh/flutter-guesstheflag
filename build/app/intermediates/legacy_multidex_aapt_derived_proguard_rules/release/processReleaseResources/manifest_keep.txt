@@ -1,0 +1,4 @@
+# Referenced at /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:24
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+# Referenced at /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:24
+-keep class io.flutter.app.FlutterApplication { <init>(); }

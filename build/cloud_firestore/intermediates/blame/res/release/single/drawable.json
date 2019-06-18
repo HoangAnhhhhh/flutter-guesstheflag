@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_icon_dark_focused.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/notification_icon_background.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f8f27c5553e2723a045792f3669d35e4/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_text_dark.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/notification_bg_low.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f8f27c5553e2723a045792f3669d35e4/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_icon_light_normal.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_icon_light_normal.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_text_dark_normal.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_text_dark_normal.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_icon_light.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_icon_dark.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_text_dark_focused.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_text_dark_focused.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_text_light.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_text_light_normal.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_text_light_normal.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_icon_disabled.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_icon_disabled.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_icon_light_focused.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_text_disabled.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_text_disabled.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_text_light_focused.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_text_light_focused.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/notification_tile_bg.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f8f27c5553e2723a045792f3669d35e4/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/notification_bg.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f8f27c5553e2723a045792f3669d35e4/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/res/merged/release/drawable/common_google_signin_btn_icon_dark_normal.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable/common_google_signin_btn_icon_dark_normal.xml"
+    }
+]

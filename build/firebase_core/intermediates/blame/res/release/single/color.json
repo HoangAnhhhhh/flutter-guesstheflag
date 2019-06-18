@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/firebase_core/intermediates/res/merged/release/color/common_google_signin_btn_text_light.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/firebase_core/intermediates/res/merged/release/color/common_google_signin_btn_tint.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/color/common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/firebase_core/intermediates/res/merged/release/color/common_google_signin_btn_text_dark.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/color/common_google_signin_btn_text_dark.xml"
+    }
+]

@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/flutter_facebook_login/intermediates/res/merged/release/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/flutter_facebook_login/intermediates/incremental/mergeReleaseResources/merged.dir/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}

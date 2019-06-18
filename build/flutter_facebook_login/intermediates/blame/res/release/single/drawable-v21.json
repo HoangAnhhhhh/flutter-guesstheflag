@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/flutter_facebook_login/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f8f27c5553e2723a045792f3669d35e4/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/flutter_facebook_login/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/flutter_facebook_login/intermediates/res/merged/release/drawable-v21/abc_dialog_material_background.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-v21/abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/flutter_facebook_login/intermediates/res/merged/release/drawable-v21/abc_list_divider_material.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-v21/abc_list_divider_material.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/flutter_facebook_login/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/flutter_facebook_login/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-v21/abc_edit_text_material.xml"
+    }
+]

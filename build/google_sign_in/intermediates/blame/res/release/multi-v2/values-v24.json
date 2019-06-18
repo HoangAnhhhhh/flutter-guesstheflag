@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/google_sign_in/intermediates/incremental/mergeReleaseResources/merged.dir/values-v24/values-v24.xml",
+            "map": [
+                {
+                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/7751340b2d5b383093011516e52e9bba/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,121,182,248",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "116,177,243,310"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/google_sign_in/intermediates/res/merged/release/values-v24/values-v24.xml",
+            "map": [
+                {
+                    "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/7751340b2d5b383093011516e52e9bba/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,121,182,248",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "116,177,243,310"
+                    }
+                }
+            ]
+        }
+    ]
+}
