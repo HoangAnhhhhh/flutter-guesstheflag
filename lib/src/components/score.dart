@@ -3,14 +3,24 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/history.dart';
 
-class Score extends StatelessWidget {
+class Score extends StatefulWidget {
+  final String level;
+  final int score;
+  Score({Key key, @required this.level, @required this.score})
+      : super(key: key);
+  @override
+  State<StatefulWidget> createState() {
+    return _Score(level: this.level, score: this.score);
+  }
+}
+
+class _Score extends State<Score> {
   final String level;
   final int score;
   History historyFromClass;
   CollectionReference historyCollection =
       Firestore.instance.collection('history');
-  Score({Key key, @required this.level, @required this.score})
-      : super(key: key);
+  _Score({Key key, @required this.level, @required this.score});
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +52,9 @@ class Score extends StatelessWidget {
         onPressed: () {
           FirebaseAuth.instance.onAuthStateChanged
               .listen((FirebaseUser firebaseUser) {
+            print('listening');
             if (firebaseUser != null) {
-              String dateTime =
-                  DateTime.now().toLocal().toString();
+              String dateTime = DateTime.now().toLocal().toString();
               historyFromClass =
                   History(firebaseUser.uid, dateTime, this.score, this.level);
               historyCollection.add(historyFromClass.toJSON()).whenComplete(
@@ -57,5 +67,11 @@ class Score extends StatelessWidget {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print('dispose: score');
   }
 }

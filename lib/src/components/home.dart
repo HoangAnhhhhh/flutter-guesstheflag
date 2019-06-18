@@ -29,8 +29,10 @@ class _HomeState extends State<Home> {
             List<DocumentSnapshot> histories = userHistory.documents;
             print(histories[0].data);
             this._screens = <Widget>[Level(), History(userHistory: histories)];
-          } else
-            this._screens = <Widget>[Level(), History(userHistory: [])];
+          } else {
+            List emptyList = [];
+            this._screens = <Widget>[Level(), History(userHistory: emptyList)];
+          }
         });
       }
     });
