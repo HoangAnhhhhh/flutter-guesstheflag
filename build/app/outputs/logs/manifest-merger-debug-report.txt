@@ -7,6 +7,7 @@ INJECTED from /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/android/a
 MERGED from /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/android/app/src/main/AndroidManifest.xml:1:1-51:12
 MERGED from [androidx.multidex:multidex:2.0.0] /home/hoanganh/.gradle/caches/transforms-1/files-1.1/multidex-2.0.0.aar/2520a8aa7337dd7bb6a97a6ae3a0152a/AndroidManifest.xml:17:1-22:12
 MERGED from [:firebase_auth] /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:shared_preferences] /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_facebook_login] /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/flutter_facebook_login/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:google_sign_in] /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/google_sign_in/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:cloud_firestore] /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
@@ -238,6 +239,8 @@ MERGED from [androidx.multidex:multidex:2.0.0] /home/hoanganh/.gradle/caches/tra
 MERGED from [androidx.multidex:multidex:2.0.0] /home/hoanganh/.gradle/caches/transforms-1/files-1.1/multidex-2.0.0.aar/2520a8aa7337dd7bb6a97a6ae3a0152a/AndroidManifest.xml:20:5-43
 MERGED from [:firebase_auth] /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth] /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences] /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences] /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_facebook_login] /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/flutter_facebook_login/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_facebook_login] /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/flutter_facebook_login/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:google_sign_in] /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/google_sign_in/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44

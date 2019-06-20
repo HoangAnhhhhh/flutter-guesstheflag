@@ -3828,6 +3828,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 --------------------------------------------------------------------------------
 firebase_auth
 firebase_core
+shared_preferences
 
 // Copyright 2017 The Chromium Authors. All rights reserved.
 //

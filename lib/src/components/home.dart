@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../components/level.dart';
 import '../components/history.dart';
 
@@ -11,7 +12,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   FirebaseUser socialUser;
-
+  SharedPreferences prefs;
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   int _selectedIndex = 0;
   List<Widget> _screens = <Widget>[Level(), History()];
@@ -19,23 +20,24 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    firebaseAuth.onAuthStateChanged.listen((FirebaseUser firebaseUser) {
-      if (firebaseUser != null) {
-        Firestore.instance
-            .collection('history')
-            .where('userID', isEqualTo: firebaseUser.uid)
-            .getDocuments()
-            .then((userHistory) {
-          if (userHistory != null) {
-            List<DocumentSnapshot> histories = userHistory.documents;
-            print(histories[0].data);
-            this._screens = <Widget>[Level(), History(userHistory: histories)];
-          } else {
-            List emptyList = [];
-            this._screens = <Widget>[Level(), History(userHistory: emptyList)];
-          }
-        });
-      }
+    // cannot get data from different screen
+    SharedPreferences.getInstance().then((prefs) {
+      String socialUserID = prefs.getString('userID');
+      print(socialUserID);
+      print(1);
+      Firestore.instance
+          .collection('history')
+          .where('userID', isEqualTo: socialUserID)
+          .getDocuments()
+          .then((userHistory) {
+        if (userHistory != null) {
+          List<DocumentSnapshot> histories = userHistory.documents;
+          this._screens = <Widget>[Level(), History(userHistory: histories)];
+        } else {
+          List emptyList = [];
+          this._screens = <Widget>[Level(), History(userHistory: emptyList)];
+        }
+      });
     });
   }
 

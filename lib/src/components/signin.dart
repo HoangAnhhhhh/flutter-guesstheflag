@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignIn extends StatelessWidget {
   @override
@@ -75,6 +76,11 @@ class SignIn extends StatelessWidget {
                               socialUser =
                                   await _auth.signInWithCredential(credential);
                               //   Navigator.push(context, MaterialPageRoute(builder: (context) => Home(googleAccount: googleAccount)));
+                              final prefs = await SharedPreferences.getInstance();
+                              // set data
+                              prefs.setString('userID', socialUser.uid);
+                              prefs.setString('email', socialUser.email);
+                              print(prefs.getString('userID'));
                               Navigator.pushNamed(context, '/home',
                                   arguments: socialUser);
                             } catch (e) {
