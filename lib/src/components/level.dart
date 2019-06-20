@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../components/play.dart';
 
 class Level extends StatelessWidget {
-  Level();
   @override
   Widget build(BuildContext context) {
     return Column(

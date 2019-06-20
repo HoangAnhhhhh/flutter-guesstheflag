@@ -11,6 +11,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   FirebaseUser socialUser;
+
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   int _selectedIndex = 0;
   List<Widget> _screens = <Widget>[Level(), History()];
