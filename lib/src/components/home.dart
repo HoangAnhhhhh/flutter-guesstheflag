@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../components/level.dart';
 import '../components/history.dart';
+import '../services/audioplayer.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,10 +16,14 @@ class _HomeState extends State<Home> {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   int _selectedIndex = 0;
   List<Widget> _screens = <Widget>[Level(), History()];
-
+  AudioService homeAudio = AudioService();
+  AudioService signinAudio = AudioService();
   @override
   void initState() {
     super.initState();
+    // homeAudio
+    //   ..loadAsset('home-music')
+    //   ..play('home-music');
   }
 
   @override
@@ -95,5 +100,14 @@ class _HomeState extends State<Home> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    homeAudio.stop();
+    signinAudio
+      ..loadAsset('signin-music')
+      ..play('signin-music');
   }
 }

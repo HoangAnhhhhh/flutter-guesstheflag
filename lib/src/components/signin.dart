@@ -3,14 +3,19 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../services/audioplayer.dart';
 
 class SignIn extends StatelessWidget {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   final FacebookLogin facebookLogin = FacebookLogin();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseUser socialUser;
+
   @override
   Widget build(BuildContext context) {
+    AudioService()
+      ..loadAsset('signin-music')
+      ..play('signin-music');
     return Scaffold(
       resizeToAvoidBottomInset: false,
       resizeToAvoidBottomPadding: false,
@@ -82,6 +87,7 @@ class SignIn extends StatelessWidget {
                               prefs.setString('userID', socialUser.uid);
                               prefs.setString('email', socialUser.email);
                               prefs.setString('name', socialUser.displayName);
+                              AudioService().stop();
                               Navigator.pushNamed(context, '/home',
                                   arguments: socialUser);
                             } catch (e) {
@@ -122,6 +128,7 @@ class SignIn extends StatelessWidget {
                                 prefs.setString('userID', socialUser.uid);
                                 prefs.setString('email', socialUser.email);
                                 prefs.setString('name', socialUser.displayName);
+                                AudioService().stop();
                                 Navigator.pushNamed(context, '/home',
                                     arguments: socialUser);
                                 break;

@@ -5,6 +5,7 @@ import 'dart:async';
 import '../models/flag.dart';
 import '../models/easy.dart';
 import '../models/medium.dart';
+import '../services/audioplayer.dart';
 
 class Play extends StatefulWidget {
   final String level;
@@ -24,6 +25,8 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
   int _point = 0;
   bool _is5050ButtonDisabled;
   bool _isAnswerButtonDisabled;
+  AudioService correctAudio = AudioService();
+  AudioService wrongAudio = AudioService();
   _PlayState(this._level);
 
   String _isEaseOrMedium() => this._level == 'Easy' ? 'Easy' : 'Medium';
@@ -90,6 +93,7 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
             this._indexFlag++;
             this._answerList = this._prepareAnswers(this._indexFlag);
             this._timeEachQuestion = 10;
+            
           } else {
             _isAnswerButtonDisabled = true;
             this._buildSnackBarWithBuilder(
@@ -97,6 +101,7 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
           }
         });
       }
+      correctAudio.play('correct-music');
     } else {
       if (mounted) {
         setState(() {
@@ -105,6 +110,7 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
             this._indexFlag++;
             this._answerList = this._prepareAnswers(this._indexFlag);
             this._timeEachQuestion = 10;
+            
           } else {
             _isAnswerButtonDisabled = true;
             this._buildSnackBarWithBuilder(
@@ -112,6 +118,7 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
           }
         });
       }
+      wrongAudio.play('wrong-music');
     }
   }
 
@@ -197,6 +204,8 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
     this._nextQuestion();
     this._is5050ButtonDisabled = false;
     this._isAnswerButtonDisabled = false;
+    correctAudio..loadAsset('correct-music');
+    wrongAudio..loadAsset('wrong-music');
   }
 
   @override
