@@ -5,12 +5,12 @@ import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SignIn extends StatelessWidget {
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FacebookLogin facebookLogin = FacebookLogin();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseUser socialUser;
   @override
   Widget build(BuildContext context) {
-    GoogleSignIn _googleSignIn = GoogleSignIn();
-    FacebookLogin facebookLogin = FacebookLogin();
-    FirebaseAuth _auth = FirebaseAuth.instance;
-    FirebaseUser socialUser;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       resizeToAvoidBottomPadding: false,
