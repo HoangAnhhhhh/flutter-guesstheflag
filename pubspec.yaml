@@ -63,8 +63,8 @@ flutter:
    - assets/flags/medium/germany.png
    - assets/flags/medium/hongkong.png
    - assets/flags/medium/iraq.png
-   - assets/music/home-music.mp3
-   - assets/music/signin-music.mp3
+   - assets/musics/home-music.mp3
+   - assets/musics/signin-music.mp3
    
 
   # An image asset can refer to one or more resolution-specific "variants", see
