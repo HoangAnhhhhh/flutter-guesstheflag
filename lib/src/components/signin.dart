@@ -76,11 +76,12 @@ class SignIn extends StatelessWidget {
                               socialUser =
                                   await _auth.signInWithCredential(credential);
                               //   Navigator.push(context, MaterialPageRoute(builder: (context) => Home(googleAccount: googleAccount)));
-                              final prefs = await SharedPreferences.getInstance();
+                              final prefs =
+                                  await SharedPreferences.getInstance();
                               // set data
                               prefs.setString('userID', socialUser.uid);
                               prefs.setString('email', socialUser.email);
-                              print(prefs.getString('userID'));
+                              prefs.setString('name', socialUser.displayName);
                               Navigator.pushNamed(context, '/home',
                                   arguments: socialUser);
                             } catch (e) {
@@ -116,6 +117,11 @@ class SignIn extends StatelessWidget {
                                         accessToken: result.accessToken.token);
                                 socialUser = await _auth
                                     .signInWithCredential(credential);
+                                final prefs =
+                                    await SharedPreferences.getInstance();
+                                prefs.setString('userID', socialUser.uid);
+                                prefs.setString('email', socialUser.email);
+                                prefs.setString('name', socialUser.displayName);
                                 Navigator.pushNamed(context, '/home',
                                     arguments: socialUser);
                                 break;

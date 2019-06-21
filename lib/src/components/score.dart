@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/history.dart';
 
 class Score extends StatefulWidget {
@@ -49,21 +49,13 @@ class _Score extends State<Score> {
         child: Icon(Icons.home),
         backgroundColor: Colors.amberAccent,
         clipBehavior: Clip.antiAlias,
-        onPressed: () {
-          FirebaseAuth.instance.onAuthStateChanged
-              .listen((FirebaseUser firebaseUser) {
-            print('listening');
-            if (firebaseUser != null) {
-              String dateTime = DateTime.now().toLocal().toString();
-              historyFromClass =
-                  History(firebaseUser.uid, dateTime, this.score, this.level);
-              historyCollection.add(historyFromClass.toJSON()).whenComplete(
-                  () => Navigator.popUntil(
-                      context, ModalRoute.withName('/home')));
-            } else
-              print('null user');
-          });
-          Navigator.popUntil(context, ModalRoute.withName('/home'));
+        onPressed: () async {
+          final prefs = await SharedPreferences.getInstance();
+          String userID = prefs.getString('userID');
+          String dateTime = DateTime.now().toLocal().toString();
+          historyFromClass = History(userID, dateTime, this.score, this.level);
+          historyCollection.add(historyFromClass.toJSON()).whenComplete(
+              () => Navigator.popUntil(context, ModalRoute.withName('/home')));
         },
       ),
     );

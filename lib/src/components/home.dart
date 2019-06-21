@@ -20,11 +20,9 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    // cannot get data from different screen
     SharedPreferences.getInstance().then((prefs) {
       String socialUserID = prefs.getString('userID');
       print(socialUserID);
-      print(1);
       Firestore.instance
           .collection('history')
           .where('userID', isEqualTo: socialUserID)
