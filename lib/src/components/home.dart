@@ -10,7 +10,7 @@ class Home extends StatefulWidget {
   State<StatefulWidget> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home> with WidgetsBindingObserver {
   FirebaseUser socialUser;
   SharedPreferences prefs;
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
@@ -21,9 +21,10 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    // homeAudio
-    //   ..loadAsset('home-music')
-    //   ..play('home-music');
+    WidgetsBinding.instance.addObserver(this);
+    homeAudio
+      ..loadAsset('home-music')
+      ..play('home-music');
   }
 
   @override
@@ -102,9 +103,29 @@ class _HomeState extends State<Home> {
     );
   }
 
+  AppLifecycleState appLifecycleState;
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.paused:
+        setState(() {
+          homeAudio.pause();
+        });
+        break;
+      case AppLifecycleState.resumed:
+        setState(() {
+          homeAudio.play('home-music');
+        });
+        break;
+      default:
+        break;
+    }
+  }
+
   @override
   void dispose() {
     super.dispose();
+    WidgetsBinding.instance.removeObserver(this);
     homeAudio.stop();
     signinAudio
       ..loadAsset('signin-music')

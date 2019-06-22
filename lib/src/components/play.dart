@@ -93,7 +93,6 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
             this._indexFlag++;
             this._answerList = this._prepareAnswers(this._indexFlag);
             this._timeEachQuestion = 10;
-            
           } else {
             _isAnswerButtonDisabled = true;
             this._buildSnackBarWithBuilder(
@@ -110,7 +109,6 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
             this._indexFlag++;
             this._answerList = this._prepareAnswers(this._indexFlag);
             this._timeEachQuestion = 10;
-            
           } else {
             _isAnswerButtonDisabled = true;
             this._buildSnackBarWithBuilder(
@@ -122,21 +120,21 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
     }
   }
 
-  void filter2WrongAnswers(indexFlag) {
-    // var rightAnswerIndex =
-    //     this._answerList.indexOf(this._flagList[indexFlag].getName());
-    // var index1 = rightAnswerIndex;
-    // var index2 = rightAnswerIndex;
+  void filter2WrongAnswers(int indexFlag) {
+    int wrongA, wrongB;
+    int rightAnswerIndex =
+        this._answerList.indexOf(this._flagList[indexFlag].getName());
+    do {
+      wrongA = this._answerList.indexOf(
+          this._flagList[Random().nextInt(this._flagList.length)].getName());
+    } while (wrongA == rightAnswerIndex);
 
-    // while () {
-    //   index1 = Random().nextInt(this._answerList.length);
-    //   index2 = Random().nextInt(this._answerList.length);
-    //   print(rightAnswerIndex);
-    //   print(index1);
-    //   print(index2);
-    // }
+    do {
+      wrongB = this._answerList.indexOf(
+          this._flagList[Random().nextInt(this._flagList.length)].getName());
+    } while (wrongB == rightAnswerIndex || wrongB == wrongA);
 
-    // return [index1, index2];
+    print([wrongA, wrongB]);
   }
 
   void _isClick5050Button() {

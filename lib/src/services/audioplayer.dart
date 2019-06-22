@@ -28,4 +28,8 @@ class AudioService {
   void stop() {
     audioPlayer.stop();
   }
+
+  void pause(){
+    audioPlayer.pause();
+  }
 }

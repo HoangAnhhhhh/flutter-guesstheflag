@@ -15,9 +15,10 @@ class _History extends State<History> {
   void initState() {
     super.initState();
     SharedPreferences.getInstance().then((prefs) {
+      String userID = prefs.getString('userID');
       Firestore.instance
           .collection('history')
-          .where('userID', isEqualTo: prefs.getString('userID'))
+          .where('userID', isEqualTo: userID)
           .getDocuments()
           .then((snapshot) {
         List<DocumentSnapshot> documents = snapshot.documents;

@@ -5,17 +5,57 @@ import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/audioplayer.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _SignIn();
+  }
+}
+
+class _SignIn extends State<SignIn> with WidgetsBindingObserver {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   final FacebookLogin facebookLogin = FacebookLogin();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseUser socialUser;
+  AudioService signinAudio = AudioService();
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    signinAudio
+      ..loadAsset('signin-music')
+      ..play('signin-music');
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+    signinAudio.stop();
+  }
+
+  AppLifecycleState appLifecycleState;
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.paused:
+        setState(() {
+          signinAudio.pause();
+        });
+        break;
+      case AppLifecycleState.resumed:
+        setState(() {
+          signinAudio.play('signin-music');
+        });
+        break;
+      default:
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    AudioService()
-      ..loadAsset('signin-music')
-      ..play('signin-music');
     return Scaffold(
       resizeToAvoidBottomInset: false,
       resizeToAvoidBottomPadding: false,

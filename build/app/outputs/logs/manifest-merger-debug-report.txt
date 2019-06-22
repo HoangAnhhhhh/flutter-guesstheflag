@@ -156,7 +156,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/hoang
 	android:label
 		ADDED from /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/android/app/src/main/AndroidManifest.xml:11:9-36
 	android:icon
-		ADDED from /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/android/app/src/main/AndroidManifest.xml:12:9-43
+		ADDED from /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/android/app/src/main/AndroidManifest.xml:12:9-45
 	android:name
 		ADDED from /home/hoanganh/Projects/home/mobile/flutter-guesstheflag/android/app/src/main/AndroidManifest.xml:10:9-57
 activity#com.guesstheflag.flutter_app.MainActivity
