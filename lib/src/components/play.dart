@@ -58,6 +58,7 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
 
   Timer _nextQuestion() {
     return Timer.periodic(Duration(seconds: 1), (Timer t) {
+      filter2WrongAnswers(this._indexFlag);
       if (mounted && this._isPaused == false) {
         setState(() {
           this._timeEachQuestion -= 1;
@@ -125,13 +126,11 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
     int rightAnswerIndex =
         this._answerList.indexOf(this._flagList[indexFlag].getName());
     do {
-      wrongA = this._answerList.indexOf(
-          this._flagList[Random().nextInt(this._flagList.length)].getName());
+      wrongA = this._answerList.indexOf(this._answerList[Random().nextInt(this._answerList.length)]);
     } while (wrongA == rightAnswerIndex);
 
     do {
-      wrongB = this._answerList.indexOf(
-          this._flagList[Random().nextInt(this._flagList.length)].getName());
+      wrongB = this._answerList.indexOf(this._answerList[Random().nextInt(this._answerList.length)]);
     } while (wrongB == rightAnswerIndex || wrongB == wrongA);
 
     print([wrongA, wrongB]);
