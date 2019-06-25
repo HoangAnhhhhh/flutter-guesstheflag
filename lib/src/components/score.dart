@@ -18,8 +18,6 @@ class _Score extends State<Score> {
   final String level;
   final int score;
   History historyFromClass;
-  CollectionReference historyCollection =
-      Firestore.instance.collection('history');
   _Score({Key key, @required this.level, @required this.score});
 
   @override
@@ -54,6 +52,8 @@ class _Score extends State<Score> {
           String userID = prefs.getString('userID');
           String dateTime = DateTime.now().toLocal().toString();
           historyFromClass = History(userID, dateTime, this.score, this.level);
+          CollectionReference historyCollection =
+              Firestore.instance.collection('$userID-history');
           historyCollection.add(historyFromClass.toJSON()).whenComplete(
               () => Navigator.popUntil(context, ModalRoute.withName('/home')));
         },
