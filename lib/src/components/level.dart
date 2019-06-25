@@ -1,7 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/animation.dart';
 import '../components/play.dart';
 
-class Level extends StatelessWidget {
+class Level extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _Level();
+  }
+}
+
+class _Level extends State<Level> with TickerProviderStateMixin {
+  AnimationController animationController;
+  Animation<double> animation;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+        duration: Duration(milliseconds: 1500), vsync: this);
+    animation =
+        CurvedAnimation(parent: animationController, curve: Curves.easeIn);
+    animationController.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -10,14 +31,16 @@ class Level extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-
         Stack(
           children: <Widget>[
             GestureDetector(
               child: Container(
                 width: double.infinity,
-                child: Image.asset('assets/images/home/easy.jpeg',
-                    fit: BoxFit.fitWidth),
+                child: FadeTransition(
+                  opacity: this.animation,
+                  child: Image.asset('assets/images/home/easy.jpeg',
+                      fit: BoxFit.fitWidth),
+                ),
               ),
             ),
             Positioned(
@@ -71,8 +94,11 @@ class Level extends StatelessWidget {
             GestureDetector(
               child: Container(
                 width: double.infinity,
-                child: Image.asset('assets/images/home/medium.jpeg',
-                    fit: BoxFit.fitWidth),
+                child: FadeTransition(
+                  opacity: this.animation,
+                  child: Image.asset('assets/images/home/medium.jpeg',
+                      fit: BoxFit.fitWidth),
+                ),
               ),
             ),
             Positioned(
