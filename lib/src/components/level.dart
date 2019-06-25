@@ -17,7 +17,7 @@ class _Level extends State<Level> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     animationController = AnimationController(
-        duration: Duration(milliseconds: 1500), vsync: this);
+        duration: Duration(milliseconds: 750), vsync: this);
     animation =
         CurvedAnimation(parent: animationController, curve: Curves.easeIn);
     animationController.forward();

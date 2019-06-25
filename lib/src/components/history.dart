@@ -37,7 +37,7 @@ class _History extends State<History> {
 
   @override
   Widget build(BuildContext context) {
-    if (this.documentDataList == null) {
+    if (this.documentDataList.isEmpty) {
       return ListView.builder(
           itemCount: 1,
           itemBuilder: (context, index) {
