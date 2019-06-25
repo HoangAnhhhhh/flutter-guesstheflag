@@ -21,6 +21,12 @@ class _Score extends State<Score> {
   _Score({Key key, @required this.level, @required this.score});
 
   @override
+  void dispose() {
+    super.dispose();
+    print('dispose: score');
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -59,11 +65,5 @@ class _Score extends State<Score> {
         },
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    print('dispose: score');
   }
 }

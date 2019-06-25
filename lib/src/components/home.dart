@@ -28,6 +28,16 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    WidgetsBinding.instance.removeObserver(this);
+    homeAudio.stop();
+    signinAudio
+      ..loadAsset('signin-music')
+      ..play('signin-music');
+  }
+
+  @override
   Widget build(BuildContext context) {
     socialUser = ModalRoute.of(context).settings.arguments;
     return Scaffold(
@@ -120,15 +130,5 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
       default:
         break;
     }
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    WidgetsBinding.instance.removeObserver(this);
-    homeAudio.stop();
-    signinAudio
-      ..loadAsset('signin-music')
-      ..play('signin-music');
   }
 }

@@ -184,60 +184,6 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
     );
   }
 
-  // // this button is created by function
-  // Widget _buildAnswer2Button(String answer) {
-  //   return Builder(
-  //     builder: (BuildContext context) {
-  //       return RaisedButton(
-  //         color: Colors.amberAccent,
-  //         splashColor: Colors.black38,
-  //         child: Text(answer, style: TextStyle(color: Colors.black)),
-  //         onPressed: this._isAnswer2ButtonDisabled
-  //             ? null
-  //             : () {
-  //                 this._chooseAnswer(answer, context);
-  //               },
-  //       );
-  //     },
-  //   );
-  // }
-
-  // // this button is created by function
-  // Widget _buildAnswer3Button(String answer) {
-  //   return Builder(
-  //     builder: (BuildContext context) {
-  //       return RaisedButton(
-  //         color: Colors.amberAccent,
-  //         splashColor: Colors.black38,
-  //         child: Text(answer, style: TextStyle(color: Colors.black)),
-  //         onPressed: this._isAnswer3ButtonDisabled
-  //             ? null
-  //             : () {
-  //                 this._chooseAnswer(answer, context);
-  //               },
-  //       );
-  //     },
-  //   );
-  // }
-
-  // // this button is created by function
-  // Widget _buildAnswer4Button(String answer) {
-  //   return Builder(
-  //     builder: (BuildContext context) {
-  //       return RaisedButton(
-  //         color: Colors.amberAccent,
-  //         splashColor: Colors.black38,
-  //         child: Text(answer, style: TextStyle(color: Colors.black)),
-  //         onPressed: this._isAnswer4ButtonDisabled
-  //             ? null
-  //             : () {
-  //                 this._chooseAnswer(answer, context);
-  //               },
-  //       );
-  //     },
-  //   );
-  // }
-
   // why I have to use BuildContext to reach out SnackBar widget
   // because at this point, there is none the SnackBar context scope or the SnackBar context can not reach out the origin so
   // I have to use BuildContext to reach out the nearest Scaffold context
@@ -264,6 +210,39 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
     this._is5050ButtonDisabled = false;
     correctAudio..loadAsset('correct-music');
     wrongAudio..loadAsset('wrong-music');
+  }
+
+  AppLifecycleState appLifecycleState;
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.paused:
+        setState(() {
+          this._isPaused = true;
+          this._timeEachQuestionTemp = this._timeEachQuestion;
+        });
+        break;
+      case AppLifecycleState.resumed:
+        setState(() {
+          this._isPaused = false;
+          this._timeEachQuestion = this._timeEachQuestionTemp;
+        });
+        break;
+      default:
+        break;
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    WidgetsBinding.instance.removeObserver(this);
+    print('disposeState: play');
   }
 
   @override
@@ -367,38 +346,5 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    WidgetsBinding.instance.removeObserver(this);
-    print('disposeState: play');
-  }
-
-  AppLifecycleState appLifecycleState;
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.paused:
-        setState(() {
-          this._isPaused = true;
-          this._timeEachQuestionTemp = this._timeEachQuestion;
-        });
-        break;
-      case AppLifecycleState.resumed:
-        setState(() {
-          this._isPaused = false;
-          this._timeEachQuestion = this._timeEachQuestionTemp;
-        });
-        break;
-      default:
-        break;
-    }
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
   }
 }
