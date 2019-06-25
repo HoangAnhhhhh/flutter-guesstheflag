@@ -24,7 +24,7 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
   List<String> _answerList;
   int _point = 0;
   bool _is5050ButtonDisabled;
-  bool _isAnswerButtonDisabled;
+  List<bool> _answerButtonDisabledList = [false, false, false, false];
   AudioService correctAudio = AudioService();
   AudioService wrongAudio = AudioService();
   _PlayState(this._level);
@@ -58,7 +58,6 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
 
   Timer _nextQuestion() {
     return Timer.periodic(Duration(seconds: 1), (Timer t) {
-      filter2WrongAnswers(this._indexFlag);
       if (mounted && this._isPaused == false) {
         setState(() {
           this._timeEachQuestion -= 1;
@@ -69,8 +68,10 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
               // increase the index to get new question and prepare the answers also
               _indexFlag++;
               this._answerList = this._prepareAnswers(this._indexFlag);
+              this._answerButtonDisabledList = [false, false, false, false];
             } else {
               this._timeEachQuestion = 0;
+              this._answerButtonDisabledList = [true, true, true, true];
               t.cancel();
               Navigator.push(
                   context,
@@ -94,8 +95,9 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
             this._indexFlag++;
             this._answerList = this._prepareAnswers(this._indexFlag);
             this._timeEachQuestion = 10;
+            this._answerButtonDisabledList = [false, false, false, false];
           } else {
-            _isAnswerButtonDisabled = true;
+            this._answerButtonDisabledList = [true, true, true, true];
             this._buildSnackBarWithBuilder(
                 context, 'Yay! You did a great job! Please wait us a moment');
           }
@@ -110,8 +112,9 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
             this._indexFlag++;
             this._answerList = this._prepareAnswers(this._indexFlag);
             this._timeEachQuestion = 10;
+            this._answerButtonDisabledList = [false, false, false, false];
           } else {
-            _isAnswerButtonDisabled = true;
+            this._answerButtonDisabledList = [true, true, true, true];
             this._buildSnackBarWithBuilder(
                 context, 'Yay! You did a great job! Please wait us a moment');
           }
@@ -121,25 +124,31 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
     }
   }
 
-  void filter2WrongAnswers(int indexFlag) {
+  List<int> filter2WrongAnswers(int indexFlag) {
     int wrongA, wrongB;
     int rightAnswerIndex =
         this._answerList.indexOf(this._flagList[indexFlag].getName());
     do {
-      wrongA = this._answerList.indexOf(this._answerList[Random().nextInt(this._answerList.length)]);
+      wrongA = this
+          ._answerList
+          .indexOf(this._answerList[Random().nextInt(this._answerList.length)]);
     } while (wrongA == rightAnswerIndex);
 
     do {
-      wrongB = this._answerList.indexOf(this._answerList[Random().nextInt(this._answerList.length)]);
+      wrongB = this
+          ._answerList
+          .indexOf(this._answerList[Random().nextInt(this._answerList.length)]);
     } while (wrongB == rightAnswerIndex || wrongB == wrongA);
-
-    print([wrongA, wrongB]);
+    return [wrongA, wrongB];
   }
 
   void _isClick5050Button() {
     if (mounted) {
       setState(() {
-        _is5050ButtonDisabled = true;
+        this._is5050ButtonDisabled = true;
+        List<int> wrongAnswerList = filter2WrongAnswers(this._indexFlag);
+        this._answerButtonDisabledList[wrongAnswerList.first] = true;
+        this._answerButtonDisabledList[wrongAnswerList.last] = true;
       });
     }
   }
@@ -158,15 +167,14 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
   }
 
   // this button is created by function
-  Widget _buildAnswerButton(String answer) {
+  Widget _buildAnswerButton(String answer, bool isDisabled) {
     return Builder(
       builder: (BuildContext context) {
         return RaisedButton(
           color: Colors.amberAccent,
           splashColor: Colors.black38,
-          child: Text(this._isAnswerButtonDisabled ? answer : answer,
-              style: TextStyle(color: Colors.black)),
-          onPressed: this._isAnswerButtonDisabled
+          child: Text(answer, style: TextStyle(color: Colors.black)),
+          onPressed: isDisabled
               ? null
               : () {
                   this._chooseAnswer(answer, context);
@@ -175,6 +183,60 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
       },
     );
   }
+
+  // // this button is created by function
+  // Widget _buildAnswer2Button(String answer) {
+  //   return Builder(
+  //     builder: (BuildContext context) {
+  //       return RaisedButton(
+  //         color: Colors.amberAccent,
+  //         splashColor: Colors.black38,
+  //         child: Text(answer, style: TextStyle(color: Colors.black)),
+  //         onPressed: this._isAnswer2ButtonDisabled
+  //             ? null
+  //             : () {
+  //                 this._chooseAnswer(answer, context);
+  //               },
+  //       );
+  //     },
+  //   );
+  // }
+
+  // // this button is created by function
+  // Widget _buildAnswer3Button(String answer) {
+  //   return Builder(
+  //     builder: (BuildContext context) {
+  //       return RaisedButton(
+  //         color: Colors.amberAccent,
+  //         splashColor: Colors.black38,
+  //         child: Text(answer, style: TextStyle(color: Colors.black)),
+  //         onPressed: this._isAnswer3ButtonDisabled
+  //             ? null
+  //             : () {
+  //                 this._chooseAnswer(answer, context);
+  //               },
+  //       );
+  //     },
+  //   );
+  // }
+
+  // // this button is created by function
+  // Widget _buildAnswer4Button(String answer) {
+  //   return Builder(
+  //     builder: (BuildContext context) {
+  //       return RaisedButton(
+  //         color: Colors.amberAccent,
+  //         splashColor: Colors.black38,
+  //         child: Text(answer, style: TextStyle(color: Colors.black)),
+  //         onPressed: this._isAnswer4ButtonDisabled
+  //             ? null
+  //             : () {
+  //                 this._chooseAnswer(answer, context);
+  //               },
+  //       );
+  //     },
+  //   );
+  // }
 
   // why I have to use BuildContext to reach out SnackBar widget
   // because at this point, there is none the SnackBar context scope or the SnackBar context can not reach out the origin so
@@ -200,7 +262,6 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
     this._answerList = this._prepareAnswers(this._indexFlag);
     this._nextQuestion();
     this._is5050ButtonDisabled = false;
-    this._isAnswerButtonDisabled = false;
     correctAudio..loadAsset('correct-music');
     wrongAudio..loadAsset('wrong-music');
   }
@@ -270,28 +331,32 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
                       width: double.infinity,
                       child: Padding(
                         padding: EdgeInsets.only(left: 35.0, right: 35.0),
-                        child: _buildAnswerButton(this._answerList[0]),
+                        child: this._buildAnswerButton(this._answerList[0],
+                            this._answerButtonDisabledList[0]),
                       ),
                     ),
                     Container(
                       width: double.infinity,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 35.0, right: 35.0),
-                        child: _buildAnswerButton(this._answerList[1]),
+                        child: this._buildAnswerButton(this._answerList[1],
+                            this._answerButtonDisabledList[1]),
                       ),
                     ),
                     Container(
                       width: double.infinity,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 35.0, right: 35.0),
-                        child: _buildAnswerButton(this._answerList[2]),
+                        child: this._buildAnswerButton(this._answerList[2],
+                            this._answerButtonDisabledList[2]),
                       ),
                     ),
                     Container(
                       width: double.infinity,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 35.0, right: 35.0),
-                        child: _buildAnswerButton(this._answerList[3]),
+                        child: this._buildAnswerButton(this._answerList[3],
+                            this._answerButtonDisabledList[3]),
                       ),
                     ),
                   ],
