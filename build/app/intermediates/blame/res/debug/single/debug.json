@@ -1,19 +1,19 @@
 [
     {
-        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
-        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-mdpi-v4/abc_list_divider_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-hdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-hdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
-        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-v23_abc_control_background_material.xml.flat",
-        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-v23/abc_control_background_material.xml"
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-mdpi-v4/abc_list_divider_mtrl_alpha.9.png"
     },
     {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_focused_holo.9.png.flat",
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-hdpi-v4/abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-v23_abc_control_background_material.xml.flat",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-v23/abc_control_background_material.xml"
     },
     {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
@@ -148,16 +148,16 @@
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-v21/abc_edit_text_material.xml"
     },
     {
-        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
-        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-xhdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable_com_facebook_button_background.xml.flat",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-facebook-common-4.39.0.aar/c04d17695065d7cc7db2543ade679c5c/res/drawable/com_facebook_button_background.xml"
     },
     {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable_abc_ratingbar_indicator_material.xml.flat",
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable/abc_ratingbar_indicator_material.xml"
     },
     {
-        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable_com_facebook_button_background.xml.flat",
-        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-facebook-common-4.39.0.aar/c04d17695065d7cc7db2543ade679c5c/res/drawable/com_facebook_button_background.xml"
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-xhdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
     },
     {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/color_abc_tint_switch_track.xml.flat",
@@ -168,16 +168,16 @@
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f8f27c5553e2723a045792f3669d35e4/res/drawable-v21/notification_action_background.xml"
     },
     {
-        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-mdpi-v4_com_facebook_button_icon_white.png.flat",
-        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-facebook-common-4.39.0.aar/c04d17695065d7cc7db2543ade679c5c/res/drawable-mdpi-v4/com_facebook_button_icon_white.png"
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-xxxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable_abc_ic_ab_back_material.xml.flat",
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable/abc_ic_ab_back_material.xml"
     },
     {
-        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
-        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-xxxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-mdpi-v4_com_facebook_button_icon_white.png.flat",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-facebook-common-4.39.0.aar/c04d17695065d7cc7db2543ade679c5c/res/drawable-mdpi-v4/com_facebook_button_icon_white.png"
     },
     {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-hdpi-v4_com_facebook_close.png.flat",
@@ -272,12 +272,12 @@
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-facebook-login-4.39.0.aar/36ab1b3fee3f90b39f2a0e23c49cbfb8/res/drawable-hdpi-v4/com_facebook_tooltip_blue_xout.png"
     },
     {
-        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
-        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-hdpi-v4_common_full_open_on_phone.png.flat",
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/494dcdde22d6e731b44ca9eafb98d0dd/res/drawable-hdpi-v4/common_full_open_on_phone.png"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
@@ -292,12 +292,12 @@
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-xxxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
-        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable_com_facebook_auth_dialog_header_background.xml.flat",
-        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-facebook-common-4.39.0.aar/c04d17695065d7cc7db2543ade679c5c/res/drawable/com_facebook_auth_dialog_header_background.xml"
-    },
-    {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable_com_facebook_auth_dialog_header_background.xml.flat",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-facebook-common-4.39.0.aar/c04d17695065d7cc7db2543ade679c5c/res/drawable/com_facebook_auth_dialog_header_background.xml"
     },
     {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_longpressed_holo.9.png.flat",
@@ -356,16 +356,12 @@
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f8f27c5553e2723a045792f3669d35e4/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
-        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable_loading.png.flat",
-        "source": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/android/app/src/main/res/drawable/loading.png"
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/layout_support_simple_spinner_dropdown_item.xml.flat",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-watch-v20_common_google_signin_btn_text_light_normal.xml.flat",
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/jetified-play-services-auth-16.0.1.aar/89b09d1c019796362f0b3d892b8213b1/res/drawable-watch-v20/common_google_signin_btn_text_light_normal.xml"
-    },
-    {
-        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/layout_support_simple_spinner_dropdown_item.xml.flat",
-        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable_launch_background.xml.flat",
@@ -448,12 +444,12 @@
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/f8f27c5553e2723a045792f3669d35e4/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
     },
     {
-        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
-        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
-    },
-    {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_half_black_48dp.png.flat",
         "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-hdpi-v4/abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "/home/hoanganh/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.0.aar/62ff66341a1b2b3ad8eaee443c7a8cf1/res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
     },
     {
         "merged": "/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/res/merged/debug/drawable-xxhdpi-v4_com_facebook_button_icon_white.png.flat",
