@@ -9,7 +9,7 @@ class Level extends StatefulWidget {
   }
 }
 
-class _Level extends State<Level> with TickerProviderStateMixin {
+class _Level extends State<Level> with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation _basicAnimation, _transformAnimation;
 
