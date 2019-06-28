@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Jun 27 22:57:39 ICT 2019
+#Fri Jun 28 16:19:30 ICT 2019
 17.baseType=DIRECTORY
 4.path=flutter_assets/assets/flags/medium/germany.png
 25.base=/home/hoanganh/Projects/home/mobile/flutter-guesstheflag/build/app/intermediates/merged_assets/debug/mergeDebugAssets/out
