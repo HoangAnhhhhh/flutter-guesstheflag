@@ -18,14 +18,19 @@ class _Level extends State<Level> with TickerProviderStateMixin {
     super.initState();
     this._controller = AnimationController(
         duration: Duration(milliseconds: 3000), vsync: this);
-    this._basicAnimation = Tween(begin: 10.0, end: double.infinity).animate(
-        CurvedAnimation(parent: this._controller, curve: Curves.ease));
+    this._basicAnimation = Tween(begin: 10.0, end: double.infinity)
+        .animate(CurvedAnimation(parent: this._controller, curve: Curves.ease));
     this._transformAnimation = BorderRadiusTween(
             begin: BorderRadius.circular(125.0),
             end: BorderRadius.circular(1.0))
-        .animate(
-            CurvedAnimation(parent: this._controller, curve: Curves.ease));
+        .animate(CurvedAnimation(parent: this._controller, curve: Curves.ease));
     this._controller.forward();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    this._controller.dispose();
   }
 
   @override
