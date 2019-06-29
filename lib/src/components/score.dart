@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/history.dart';
-import 'dart:math';
-
 class Score extends StatefulWidget {
   final String level;
   final int score;
@@ -30,7 +28,7 @@ class _Score extends State<Score> with SingleTickerProviderStateMixin {
         duration: Duration(milliseconds: 2000), vsync: this);
     this._scaleAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(parent: this._controller, curve: Curves.fastOutSlowIn));
-    this._rotateAnimation = Tween<double>(begin: 0.0, end: 15.0).animate(
+    this._rotateAnimation = Tween<double>(begin: 15.0, end: 0.0).animate(
         CurvedAnimation(parent: this._controller, curve: Curves.fastOutSlowIn));
     this._controller.forward();
   }
@@ -73,8 +71,8 @@ class _Score extends State<Score> with SingleTickerProviderStateMixin {
                 ),
               ),
             ),
-            floatingActionButton: Transform(
-              transform: Matrix4.rotationX(this._rotateAnimation.value),
+            floatingActionButton: Transform.rotate(
+              angle: this._rotateAnimation.value,
               child: FloatingActionButton(
                 tooltip: 'Back to Home',
                 child: Icon(Icons.home),
