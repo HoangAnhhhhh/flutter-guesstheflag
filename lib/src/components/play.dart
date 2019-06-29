@@ -158,15 +158,19 @@ class _PlayState extends State<Play>
   }
 
   // this button is created by function
-  Widget _build5050Button() {
-    return RaisedButton(
-      color: Colors.amberAccent,
-      splashColor: Colors.black38,
-      child: Text(
-        this._is5050ButtonDisabled ? "50/50" : "50/50",
-        style: TextStyle(color: Colors.black),
+  Widget _build5050Button(double width) {
+    return Transform(
+      transform: Matrix4.translationValues(
+          this._slideInLeftAnimation.value * width, 0, 0),
+      child: RaisedButton(
+        color: Colors.amberAccent,
+        splashColor: Colors.black38,
+        child: Text(
+          this._is5050ButtonDisabled ? "50/50" : "50/50",
+          style: TextStyle(color: Colors.black),
+        ),
+        onPressed: this._is5050ButtonDisabled ? null : this._isClick5050Button,
       ),
-      onPressed: this._is5050ButtonDisabled ? null : this._isClick5050Button,
     );
   }
 
@@ -206,12 +210,13 @@ class _PlayState extends State<Play>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    this._controller = AnimationController(
-        duration: Duration(milliseconds: 1500), vsync: this);
-    this._slideInLeftAnimation = Tween(begin: -1.0, end: 0.0)
-        .animate(CurvedAnimation(parent: this._controller, curve: Curves.ease));
-    this._slideInRightAnimation = Tween(begin: 1.0, end: 0.0)
-        .animate(CurvedAnimation(parent: this._controller, curve: Curves.ease));
+    this._controller =
+        AnimationController(duration: Duration(milliseconds: 750), vsync: this);
+    this._slideInLeftAnimation = Tween(begin: -1.0, end: 0.0).animate(
+        CurvedAnimation(parent: this._controller, curve: Curves.fastOutSlowIn));
+    this._slideInRightAnimation = Tween(begin: 1.0, end: 0.0).animate(
+        CurvedAnimation(parent: this._controller, curve: Curves.fastOutSlowIn));
+    this._controller.forward();
     // initialize first question of the game
     this._initFlagList(this._level);
     this._answerList = this._prepareAnswers(this._indexFlag);
@@ -251,113 +256,154 @@ class _PlayState extends State<Play>
   void dispose() {
     super.dispose();
     WidgetsBinding.instance.removeObserver(this);
+    this._controller.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('${this._level}'),
-      ),
-      body: Container(
-        width: double.infinity,
-        child: Column(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Expanded(
-                    flex: 1,
-                    child: Transform(
-                      transform: Matrix4.translationValues(
-                          this._slideInLeftAnimation.value, 0, 0),
-                      child: Container(
-                        margin: EdgeInsets.only(top: 35.0),
-                        height: 100,
-                        alignment: Alignment.center,
-                        child: Text(
-                          '${this._timeEachQuestion}',
-                          style: TextStyle(fontSize: 30.0),
-                        ),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey[350]),
-                            shape: BoxShape.circle),
-                      ),
-                    )),
-                Expanded(
-                    flex: 2,
-                    child: Transform(
-                      transform: Matrix4.translationValues(
-                          this._slideInRightAnimation.value, 0, 0),
-                      child: Container(
-                        margin: EdgeInsets.only(top: 45.0),
-                        width: 150,
-                        height: 150,
-                        alignment: Alignment.center,
-                        child: Image.asset(
-                            '${this._flagList[this._indexFlag].getURL()}'),
-                      ),
-                    ))
-              ],
+    final double width = MediaQuery.of(context).size.width;
+    return AnimatedBuilder(
+        animation: this._controller,
+        builder: (BuildContext context, Widget child) {
+          return Scaffold(
+            appBar: AppBar(
+              centerTitle: true,
+              title: Text('${this._level}'),
             ),
-            SizedBox(height: 50),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                this._build5050Button(),
-                Text('${this._point}/5',
-                    style: TextStyle(fontSize: 20.0, color: Colors.amber))
-              ],
-            ),
-            SizedBox(height: 40.0),
-            Padding(
-              padding: EdgeInsets.only(left: 15.0, right: 15.0),
-              child: Container(
-                padding: EdgeInsets.all(5.0),
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(10.0)),
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 35.0, right: 35.0),
-                        child: this._buildAnswerButton(this._answerList[0],
-                            this._answerButtonDisabledList[0]),
+            body: Container(
+              width: double.infinity,
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                          flex: 1,
+                          child: Transform(
+                            transform: Matrix4.translationValues(
+                                this._slideInLeftAnimation.value * width, 0, 0),
+                            child: Container(
+                              margin: EdgeInsets.only(top: 35.0),
+                              height: 100,
+                              alignment: Alignment.center,
+                              child: Text(
+                                '${this._timeEachQuestion}',
+                                style: TextStyle(fontSize: 30.0),
+                              ),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.grey[350]),
+                                  shape: BoxShape.circle),
+                            ),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Transform(
+                            transform: Matrix4.translationValues(
+                                this._slideInRightAnimation.value * width,
+                                0,
+                                0),
+                            child: Container(
+                              margin: EdgeInsets.only(top: 45.0),
+                              width: 150,
+                              height: 150,
+                              alignment: Alignment.center,
+                              child: Image.asset(
+                                  '${this._flagList[this._indexFlag].getURL()}'),
+                            ),
+                          ))
+                    ],
+                  ),
+                  SizedBox(height: 50),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      this._build5050Button(width),
+                      Transform(
+                        transform: Matrix4.translationValues(
+                            this._slideInRightAnimation.value * width, 0, 0),
+                        child: Text('${this._point}/5',
+                            style:
+                                TextStyle(fontSize: 20.0, color: Colors.amber)),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 40.0),
+                  Padding(
+                    padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                    child: Container(
+                      padding: EdgeInsets.all(5.0),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                              width: double.infinity,
+                              child: Transform(
+                                transform: Matrix4.translationValues(
+                                    this._slideInLeftAnimation.value * width,
+                                    0,
+                                    0),
+                                child: Padding(
+                                  padding:
+                                      EdgeInsets.only(left: 35.0, right: 35.0),
+                                  child: this._buildAnswerButton(
+                                      this._answerList[0],
+                                      this._answerButtonDisabledList[0]),
+                                ),
+                              )),
+                          Container(
+                              width: double.infinity,
+                              child: Transform(
+                                transform: Matrix4.translationValues(
+                                    this._slideInRightAnimation.value * width,
+                                    0,
+                                    0),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 35.0, right: 35.0),
+                                  child: this._buildAnswerButton(
+                                      this._answerList[1],
+                                      this._answerButtonDisabledList[1]),
+                                ),
+                              )),
+                          Container(
+                              width: double.infinity,
+                              child: Transform(
+                                transform: Matrix4.translationValues(
+                                    this._slideInLeftAnimation.value * width,
+                                    0,
+                                    0),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 35.0, right: 35.0),
+                                  child: this._buildAnswerButton(
+                                      this._answerList[2],
+                                      this._answerButtonDisabledList[2]),
+                                ),
+                              )),
+                          Container(
+                              width: double.infinity,
+                              child: Transform(
+                                transform: Matrix4.translationValues(
+                                    this._slideInRightAnimation.value * width,
+                                    0,
+                                    0),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 35.0, right: 35.0),
+                                  child: this._buildAnswerButton(
+                                      this._answerList[3],
+                                      this._answerButtonDisabledList[3]),
+                                ),
+                              )),
+                        ],
                       ),
                     ),
-                    Container(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 35.0, right: 35.0),
-                        child: this._buildAnswerButton(this._answerList[1],
-                            this._answerButtonDisabledList[1]),
-                      ),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 35.0, right: 35.0),
-                        child: this._buildAnswerButton(this._answerList[2],
-                            this._answerButtonDisabledList[2]),
-                      ),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 35.0, right: 35.0),
-                        child: this._buildAnswerButton(this._answerList[3],
-                            this._answerButtonDisabledList[3]),
-                      ),
-                    ),
-                  ],
-                ),
+                  )
+                ],
               ),
-            )
-          ],
-        ),
-      ),
-    );
+            ),
+          );
+        });
   }
 }
