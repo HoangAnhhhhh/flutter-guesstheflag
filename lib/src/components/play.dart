@@ -14,7 +14,8 @@ class Play extends StatefulWidget {
   State<StatefulWidget> createState() => _PlayState(this.level);
 }
 
-class _PlayState extends State<Play> with WidgetsBindingObserver {
+class _PlayState extends State<Play>
+    with WidgetsBindingObserver, SingleTickerProviderStateMixin {
   final String _level;
   int _indexFlag = 0;
   int _timeEachQuestion = 10;
@@ -27,6 +28,9 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
   List<bool> _answerButtonDisabledList = [false, false, false, false];
   AudioService correctAudio = AudioService();
   AudioService wrongAudio = AudioService();
+  // animation
+  AnimationController _controller;
+  Animation _slideInLeftAnimation, _slideInRightAnimation;
   _PlayState(this._level);
 
   String _isEaseOrMedium() => this._level == 'Easy' ? 'Easy' : 'Medium';
@@ -202,7 +206,12 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    print('initState');
+    this._controller = AnimationController(
+        duration: Duration(milliseconds: 1500), vsync: this);
+    this._slideInLeftAnimation = Tween(begin: -1.0, end: 0.0)
+        .animate(CurvedAnimation(parent: this._controller, curve: Curves.ease));
+    this._slideInRightAnimation = Tween(begin: 1.0, end: 0.0)
+        .animate(CurvedAnimation(parent: this._controller, curve: Curves.ease));
     // initialize first question of the game
     this._initFlagList(this._level);
     this._answerList = this._prepareAnswers(this._indexFlag);
@@ -242,12 +251,10 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
   void dispose() {
     super.dispose();
     WidgetsBinding.instance.removeObserver(this);
-    print('disposeState: play');
   }
 
   @override
   Widget build(BuildContext context) {
-    print('buildState');
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -260,31 +267,37 @@ class _PlayState extends State<Play> with WidgetsBindingObserver {
             Row(
               children: <Widget>[
                 Expanded(
-                  flex: 1,
-                  child: Container(
-                    margin: EdgeInsets.only(top: 35.0),
-                    height: 100,
-                    alignment: Alignment.center,
-                    child: Text(
-                      '${this._timeEachQuestion}',
-                      style: TextStyle(fontSize: 30.0),
-                    ),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey[350]),
-                        shape: BoxShape.circle),
-                  ),
-                ),
+                    flex: 1,
+                    child: Transform(
+                      transform: Matrix4.translationValues(
+                          this._slideInLeftAnimation.value, 0, 0),
+                      child: Container(
+                        margin: EdgeInsets.only(top: 35.0),
+                        height: 100,
+                        alignment: Alignment.center,
+                        child: Text(
+                          '${this._timeEachQuestion}',
+                          style: TextStyle(fontSize: 30.0),
+                        ),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey[350]),
+                            shape: BoxShape.circle),
+                      ),
+                    )),
                 Expanded(
-                  flex: 2,
-                  child: Container(
-                    margin: EdgeInsets.only(top: 45.0),
-                    width: 150,
-                    height: 150,
-                    alignment: Alignment.center,
-                    child: Image.asset(
-                        '${this._flagList[this._indexFlag].getURL()}'),
-                  ),
-                )
+                    flex: 2,
+                    child: Transform(
+                      transform: Matrix4.translationValues(
+                          this._slideInRightAnimation.value, 0, 0),
+                      child: Container(
+                        margin: EdgeInsets.only(top: 45.0),
+                        width: 150,
+                        height: 150,
+                        alignment: Alignment.center,
+                        child: Image.asset(
+                            '${this._flagList[this._indexFlag].getURL()}'),
+                      ),
+                    ))
               ],
             ),
             SizedBox(height: 50),
