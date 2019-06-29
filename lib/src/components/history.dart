@@ -9,11 +9,18 @@ class History extends StatefulWidget {
   }
 }
 
-class _History extends State<History> {
+class _History extends State<History> with SingleTickerProviderStateMixin {
   List<Map<String, dynamic>> documentDataList = [];
+  AnimationController _controller;
+  Animation _scaleAnimation;
   @override
   void initState() {
     super.initState();
+    this._controller =
+        AnimationController(duration: Duration(seconds: 1), vsync: this);
+    this._scaleAnimation = Tween(begin: 10.0, end: 1.0)
+        .animate(CurvedAnimation(parent: this._controller, curve: Curves.fastOutSlowIn));
+    this._controller.forward();
     SharedPreferences.getInstance().then((prefs) {
       String userID = prefs.getString('userID');
       Firestore.instance
@@ -37,28 +44,44 @@ class _History extends State<History> {
 
   @override
   Widget build(BuildContext context) {
-    if (this.documentDataList.isEmpty) {
-      return ListView.builder(
-          itemCount: 1,
-          itemBuilder: (context, index) {
-            return ListTile(
-              leading: Icon(Icons.history),
-              title: Text('Score: unknown'),
-              subtitle: Text('Level: unknown'),
-              trailing: Text('unknown'),
+    return AnimatedBuilder(
+        animation: this._controller,
+        builder: (BuildContext context, Widget child) {
+          if (this.documentDataList.isEmpty) {
+            return Container(
+              child: ScaleTransition(
+                scale: this._scaleAnimation,
+                child: ListView.builder(
+                    itemCount: 1,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        leading: Icon(Icons.history),
+                        title: Text('Score: unknown'),
+                        subtitle: Text('Level: unknown'),
+                        trailing: Text('unknown'),
+                      );
+                    }),
+              ),
             );
-          });
-    } else {
-      return ListView.builder(
-          itemCount: this.documentDataList.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              leading: Icon(Icons.history),
-              title: Text('Score: ${this.documentDataList[index]['score']}'),
-              subtitle: Text('Level: ${this.documentDataList[index]['level']}'),
-              trailing: Text('${this.documentDataList[index]['dateCreated']}'),
+          } else {
+            return Container(
+              child: ScaleTransition(
+                  scale: this._scaleAnimation,
+                  child: ListView.builder(
+                      itemCount: this.documentDataList.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          leading: Icon(Icons.history),
+                          title: Text(
+                              'Score: ${this.documentDataList[index]['score']}'),
+                          subtitle: Text(
+                              'Level: ${this.documentDataList[index]['level']}'),
+                          trailing: Text(
+                              '${this.documentDataList[index]['dateCreated']}'),
+                        );
+                      })),
             );
-          });
-    }
+          }
+        });
   }
 }
