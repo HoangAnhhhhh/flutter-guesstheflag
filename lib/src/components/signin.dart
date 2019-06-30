@@ -1,3 +1,4 @@
+import 'package:audioplayer/audioplayer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -50,6 +51,12 @@ class _SignIn extends State<SignIn>
     signinAudio
       ..loadAsset('signin-music')
       ..play('signin-music');
+    signinAudio.getInstance().onPlayerStateChanged.listen((state) {
+      if (state == AudioPlayerState.COMPLETED) {
+        print('play signin music again');
+        signinAudio.play('signin-music');
+      }
+    });
   }
 
   @override
