@@ -27,7 +27,9 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
       ..loadAsset('home-music')
       ..play('home-music');
     homeAudio.getInstance().onPlayerStateChanged.listen((state) {
+      print('home $state');
       if (state == AudioPlayerState.COMPLETED) {
+        print('play home music again');
         homeAudio.play('home-music');
       }
     });
