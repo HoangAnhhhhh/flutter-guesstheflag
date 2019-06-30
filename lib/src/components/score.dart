@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/history.dart';
+import './loading.dart';
+
 class Score extends StatefulWidget {
   final String level;
   final int score;
