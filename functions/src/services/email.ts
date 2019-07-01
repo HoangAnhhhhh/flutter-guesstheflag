@@ -8,8 +8,6 @@ export class Email {
     constructor(email: string, displayName: string) {
         this.emailTo = email;
         this.displayNameTo = displayName;
-    }
-    public sendEmail(): void {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
