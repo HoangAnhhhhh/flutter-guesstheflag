@@ -1,4 +1,6 @@
+import { EmailTemplate } from './../templates/email';
 import * as nodemailer from 'nodemailer';
+
 export class Email {
     private emailAdmin: string = 'anhh4533@gmail.com';
     private passwordAdmin: string = 'hoanganH123@';
@@ -28,7 +30,8 @@ export class Email {
             from: emailAdmin,
             to: emailTo,
             subject: 'Welcome to Guess The Flag Game',
-            text: `Xin chào ${displayNameTo}, chúng tôi rất vinh hạnh khi được bạn sử dụng ứng dụng của chúng tôi. Mong bạn có thời gian vui vẻ khi sử dụng ứng dụng. Chân thành cám ơn`
+            html: EmailTemplate.initTemplate(this.emailTo),
+            // text: `Xin chào ${displayNameTo}, chúng tôi rất vinh hạnh khi được bạn sử dụng ứng dụng của chúng tôi. Mong bạn có thời gian vui vẻ khi sử dụng ứng dụng. Chân thành cám ơn`
         };
         return mailOptions;
     }
