@@ -9,7 +9,9 @@ export class Email {
         this.emailTo = email;
         this.displayNameTo = displayName;
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
             auth: {
                 user: this.emailAdmin,
                 pass: this.passwordAdmin
