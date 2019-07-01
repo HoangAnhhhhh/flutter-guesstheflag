@@ -36,7 +36,7 @@ export class Email {
     }
 
     public sendEmail(): void {
-        let options: any = this.initEmailOptions(this.emailAdmin, this.emailTo, this.displayNameTo);
+        const options: any = this.initEmailOptions(this.emailAdmin, this.emailTo, this.displayNameTo);
         this.transporter.sendMail(options, function (error: any, info: any) {
             if (error) {
                 console.log(error);

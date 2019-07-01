@@ -6,9 +6,9 @@ admin.initializeApp();
 // // https://firebase.google.com/docs/functions/typescript
 //
 export const sendWelcomeEmail = functions.auth.user().onCreate(user => {
-    let email: string = user.email;
-    let displayName: string = user.displayName;
+    const email: string = user.email;
+    const displayName: string = user.displayName;
     console.log(email, displayName);
     const emailClass = new Email(email, displayName);
-    return emailClass.sendEmail();
+    emailClass.sendEmail();
 });
