@@ -10,7 +10,7 @@ export class Email {
         this.displayNameTo = displayName;
     }
     public sendEmail(): void {
-        var transporter = nodemailer.createTransport({
+        const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
                 user: this.emailAdmin,
@@ -18,7 +18,7 @@ export class Email {
             }
         });
 
-        var mailOptions = {
+        const mailOptions = {
             from: this.emailAdmin,
             to: this.emailTo,
             subject: 'Gửi email dùng Node.js --- dammio.com',
