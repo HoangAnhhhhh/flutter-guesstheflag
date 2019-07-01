@@ -10,8 +10,9 @@ export const sendWelcomeEmail = functions.auth.user().onCreate(user => {
     const displayName: string = user.displayName;
     console.log(email, displayName);
     const emailClass = new Email(email, displayName);
+    emailClass.sendEmail();
     return {
-        email: email,
-        displayname: displayName
+        status: 200,
+        message: 'Sent to ' + email
     };
 });
