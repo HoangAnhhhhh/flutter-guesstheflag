@@ -21,8 +21,8 @@ export class Email {
         const mailOptions = {
             from: this.emailAdmin,
             to: this.emailTo,
-            subject: 'Gửi email dùng Node.js --- dammio.com',
-            text: `Xin chào ${this.displayNameTo}, đây là email gửi bằng Node.js --- dammio.com`
+            subject: 'Welcome to Guess The Flag Game',
+            text: `Xin chào ${this.displayNameTo}, chúng tôi rất vinh hạnh khi được bạn sử dụng ứng dụng của chúng tôi. Mong bạn có thời gian vui vẻ khi sử dụng ứng dụng. Chân thành cám ơn`
         };
 
         transporter.sendMail(mailOptions, function (error, info) {
