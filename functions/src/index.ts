@@ -8,6 +8,7 @@ admin.initializeApp();
 export const sendWelcomeEmail = functions.auth.user().onCreate(user => {
     let email: string = user.email;
     let displayName: string = user.displayName;
+    console.log(email, displayName);
     const emailClass = new Email(email, displayName);
     return emailClass.sendEmail();
 });
