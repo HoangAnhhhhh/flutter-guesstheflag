@@ -326,77 +326,9 @@ export class EmailTemplate {
         </div>
         </div>
         </div>
-        <div style="background-color:transparent;">
-        <div class="block-grid two-up no-stack" data-body-width-father="700px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
-        <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:transparent;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
-        <!--[if (mso)|(IE)]><td align="center" width="350" style="background-color:transparent;width:350px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 20px; padding-left: 20px; padding-top:10px; padding-bottom:10px;"><![endif]-->
-        <div class="col num6" data-body-width-son="350" rel="col-num-container-box-son" style="min-width: 320px; max-width: 350px; display: table-cell; vertical-align: top;">
-        <div style="width:100% !important;">
-        <!--[if (!mso)&(!IE)]><!-->
-        <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:10px; padding-bottom:10px; padding-right: 20px; padding-left: 20px;">
-        <!--<![endif]-->
-        <div align="left" class="img-container left fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-        <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="left"><![endif]--><img alt="Image" border="0" class="left fixedwidth" src="./images/appap_color2x.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; border: 0; height: auto; float: none; width: 100%; max-width: 155px; display: block;" title="Image" width="155"/>
-        <!--[if mso]></td></tr></table><![endif]-->
-        </div>
-        <!--[if (!mso)&(!IE)]><!-->
-        </div>
-        <!--<![endif]-->
-        </div>
-        </div>
-        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-        <!--[if (mso)|(IE)]></td><td align="center" width="350" style="background-color:transparent;width:350px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
-        <div class="col num6" data-body-width-son="350" rel="col-num-container-box-son" style="min-width: 320px; max-width: 350px; display: table-cell; vertical-align: top;">
-        <div style="width:100% !important;">
-        <!--[if (!mso)&(!IE)]><!-->
-        <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
-        <!--<![endif]-->
-        <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 20px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
-        <div style="color:#E3E3E3;font-family:'Open Sans', Helvetica, Arial, sans-serif;line-height:120%;padding-top:20px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-        <div style="font-size: 12px; line-height: 14px; font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #E3E3E3;">
-        <p style="font-size: 14px; line-height: 21px; text-align: right; margin: 0;"><span style="font-size: 18px; color: #000000;">Guess The Flag</span></p>
-        </div>
-        </div>
-        <!--[if mso]></td></tr></table><![endif]-->
-        <!--[if (!mso)&(!IE)]><!-->
-        </div>
-        <!--<![endif]-->
-        </div>
-        </div>
-        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-        <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-        </div>
-        </div>
-        </div>
-        <div style="background-image:url('./images/Bg_text_ani.gif');background-position:top center;background-repeat:no-repeat;background-color:#FFFFFF;">
         <div class="block-grid" data-body-width-father="700px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
         <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-image:url('./images/Bg_text_ani.gif');background-position:top center;background-repeat:no-repeat;background-color:#FFFFFF;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
-        <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:transparent;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:40px; padding-bottom:5px;"><![endif]-->
-        <div class="col num12" data-body-width-son="700" rel="col-num-container-box-son" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;">
-        <div style="width:100% !important;">
-        <!--[if (!mso)&(!IE)]><!-->
-        <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:40px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
-        <!--<![endif]-->
-        <div align="right" class="img-container right fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-        <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="right"><![endif]--><img align="right" alt="Image" border="0" class="right fixedwidth" src="./images/iPhone_1.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; border: 0; height: auto; float: none; width: 100%; max-width: 350px; display: block;" title="Image" width="350"/>
-        <!--[if mso]></td></tr></table><![endif]-->
-        </div>
-        <!--[if (!mso)&(!IE)]><!-->
-        </div>
-        <!--<![endif]-->
-        </div>
-        </div>
-        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-        <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-        </div>
-        </div>
-        </div>
-        <div style="background-image:url('./images/bg_wave_1.png');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;">
-        <div class="block-grid" data-body-width-father="700px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
-        <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-image:url('./images/bg_wave_1.png');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
+        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-image:url('images/bg_wave_1.png');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
         <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:transparent;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:0px;"><![endif]-->
         <div class="col num12" data-body-width-son="700" rel="col-num-container-box-son" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;">
         <div style="width:100% !important;">
@@ -441,7 +373,7 @@ export class EmailTemplate {
         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 10px; padding-bottom: 0px; font-family: 'Trebuchet MS', Tahoma, sans-serif"><![endif]-->
         <div style="color:#555555;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;line-height:120%;padding-top:10px;padding-right:30px;padding-bottom:0px;padding-left:30px;">
         <div style="font-size: 12px; line-height: 14px; font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; color: #555555;">
-        <p style="font-size: 14px; line-height: 16px; margin: 0;"><strong><span style="font-size: 46px; line-height: 55px;">Welcome, <span style="color: #3d3bee; line-height: 55px; font-size: 46px;">${email}</span>!</span></strong></p>
+        <p style="font-size: 14px; line-height: 16px; margin: 0;"><strong><span style="font-size: 46px; line-height: 55px;">Welcome, <span style="color: #3d3bee; line-height: 34px; font-size: 25px;">${email}</span>!</span></strong></p>
         </div>
         </div>
         <!--[if mso]></td></tr></table><![endif]-->
@@ -455,31 +387,11 @@ export class EmailTemplate {
         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 30px; padding-left: 30px; padding-top: 15px; padding-bottom: 20px; font-family: Arial, sans-serif"><![endif]-->
         <div style="color:#7C7C7C;font-family:'Open Sans', Helvetica, Arial, sans-serif;line-height:150%;padding-top:15px;padding-right:30px;padding-bottom:20px;padding-left:30px;">
         <div style="line-height: 18px; font-family: 'Open Sans', Helvetica, Arial, sans-serif; font-size: 12px; color: #7C7C7C;">
-        <p style="line-height: 24px; font-size: 12px; margin: 0;"><span style="font-size: 16px;">There are many players want to show off their skills to prove they are the best. How about you, my friend?</span></p>
+        <p style="line-height: 24px; font-size: 12px; margin: 0;"><span style="font-size: 16px;">There are many players want to show off their skill to prove the world that they're the best. How about you, player???</span></p>
+        <p style="font-size: 12px; line-height: 18px; margin: 0;"> </p>
         </div>
         </div>
         <!--[if mso]></td></tr></table><![endif]-->
-        <!--[if (!mso)&(!IE)]><!-->
-        </div>
-        <!--<![endif]-->
-        </div>
-        </div>
-        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-        <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-        </div>
-        </div>
-        </div>
-        <div style="background-color:#F4F4F4;">
-        <div class="block-grid" data-body-width-father="700px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
-        <div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
-        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:#FFFFFF"><![endif]-->
-        <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:#FFFFFF;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 5px; padding-left: 5px; padding-top:5px; padding-bottom:5px;"><![endif]-->
-        <div class="col num12" data-body-width-son="700" rel="col-num-container-box-son" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;">
-        <div style="width:100% !important;">
-        <!--[if (!mso)&(!IE)]><!-->
-        <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 5px; padding-left: 5px;">
-        <!--<![endif]-->
-        <div></div>
         <!--[if (!mso)&(!IE)]><!-->
         </div>
         <!--<![endif]-->
@@ -517,41 +429,6 @@ export class EmailTemplate {
         </div>
         </div>
         </div>
-        <div style="background-image:url('./images/bg_wave_2.png');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;">
-        <div class="block-grid" data-body-width-father="700px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
-        <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-image:url('./images/bg_wave_2.png');background-position:top center;background-repeat:repeat;background-color:#F4F4F4;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:700px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
-        <!--[if (mso)|(IE)]><td align="center" width="700" style="background-color:transparent;width:700px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:0px;"><![endif]-->
-        <div class="col num12" data-body-width-son="700" rel="col-num-container-box-son" style="min-width: 320px; max-width: 700px; display: table-cell; vertical-align: top;">
-        <div style="width:100% !important;">
-        <!--[if (!mso)&(!IE)]><!-->
-        <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-        <!--<![endif]-->
-        <table border="0" cellpadding="0" cellspacing="0" class="divider" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" valign="top" width="100%">
-        <tbody>
-        <tr style="vertical-align: top;" valign="top">
-        <td class="divider_inner" style="word-break: break-word; vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-collapse: collapse;" valign="top">
-        <table align="center" border="0" cellpadding="0" cellspacing="0" class="divider_content" height="70" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; border-top: 0px solid transparent; height: 70px;" valign="top" width="100%">
-        <tbody>
-        <tr style="vertical-align: top;" valign="top">
-        <td height="70" style="word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse;" valign="top"><span></span></td>
-        </tr>
-        </tbody>
-        </table>
-        </td>
-        </tr>
-        </tbody>
-        </table>
-        <!--[if (!mso)&(!IE)]><!-->
-        </div>
-        <!--<![endif]-->
-        </div>
-        </div>
-        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-        <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-        </div>
-        </div>
-        </div>
         <div style="background-color:#FFFFFF;">
         <div class="block-grid" data-body-width-father="700px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
         <div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
@@ -569,24 +446,6 @@ export class EmailTemplate {
         </div>
         </div>
         <!--[if mso]></td></tr></table><![endif]-->
-        <table cellpadding="0" cellspacing="0" class="social_icons" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" valign="top" width="100%">
-        <tbody>
-        <tr style="vertical-align: top;" valign="top">
-        <td style="word-break: break-word; vertical-align: top; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-collapse: collapse;" valign="top">
-        <table activate="activate" align="center" alignment="alignment" cellpadding="0" cellspacing="0" class="social_table" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: undefined; mso-table-tspace: 0; mso-table-rspace: 0; mso-table-bspace: 0; mso-table-lspace: 0;" to="to" valign="top">
-        <tbody>
-        <tr align="center" style="vertical-align: top; display: inline-block; text-align: center;" valign="top">
-        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 3px; padding-left: 3px; border-collapse: collapse;" valign="top"><a href="https://www.facebook.com/axit.sunfuric97" target="_blank"><img alt="Facebook" height="32" src="./images/facebook@2x.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; height: auto; float: none; border: none; display: block;" title="Facebook" width="32"/></a></td>
-        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 3px; padding-left: 3px; border-collapse: collapse;" valign="top"><a href="https://twitter.com/?lang=vi" target="_blank"><img alt="Twitter" height="32" src="./images/twitter@2x.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; height: auto; float: none; border: none; display: block;" title="Twitter" width="32"/></a></td>
-        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 3px; padding-left: 3px; border-collapse: collapse;" valign="top"><a href="https://www.instagram.com/mynamesanh/" target="_blank"><img alt="Instagram" height="32" src="./images/instagram@2x.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; height: auto; float: none; border: none; display: block;" title="Instagram" width="32"/></a></td>
-        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 3px; padding-left: 3px; border-collapse: collapse;" valign="top"><a href="https://www.linkedin.com/in/hoang-anh-119baa167/" target="_blank"><img alt="LinkedIn" height="32" src="./images/linkedin@2x.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; height: auto; float: none; border: none; display: block;" title="LinkedIn" width="32"/></a></td>
-        </tr>
-        </tbody>
-        </table>
-        </td>
-        </tr>
-        </tbody>
-        </table>
         <!--[if (!mso)&(!IE)]><!-->
         </div>
         <!--<![endif]-->
