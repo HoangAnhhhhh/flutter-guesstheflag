@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:io';
 import '../services/audioplayer.dart';
 
 class SignIn extends StatefulWidget {
@@ -16,10 +17,10 @@ class SignIn extends StatefulWidget {
 class _SignIn extends State<SignIn>
     with WidgetsBindingObserver, SingleTickerProviderStateMixin {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
-  final FacebookLogin facebookLogin = FacebookLogin();
+  final FacebookLogin _facebookLogin = FacebookLogin();
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  FirebaseUser socialUser;
-  AudioService signinAudio = AudioService();
+  FirebaseUser _socialUser;
+  AudioService _signinAudio = AudioService();
 
   // animation
   AnimationController _controller;
@@ -32,10 +33,50 @@ class _SignIn extends State<SignIn>
         curve: Interval(begin, end, curve: Curves.fastOutSlowIn));
   }
 
+  Future<bool> _checkConnect() async {
+    dynamic isConnect;
+    try {
+      final result = await InternetAddress.lookup('google.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+        isConnect = true;
+        return isConnect;
+      }
+    } on SocketException catch (_) {
+      isConnect = false;
+      return isConnect;
+    }
+    return isConnect;
+  }
+
+  void _showDialog() {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("Connection Failed"),
+          content: new Text(
+              "We cannot detect a network connection on this device. Please check Network Settings to connect to an available network"),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("Close"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
     super.initState();
+
     this._controller = AnimationController(
         duration: Duration(milliseconds: 1500), vsync: this);
     this._googleAnimation = Tween(begin: -1.0, end: 0.0).animate(this
@@ -48,13 +89,13 @@ class _SignIn extends State<SignIn>
         ._buildDelayedAnimation(
             controller: this._controller, begin: 0.7, end: 1.0));
     this._controller.forward();
-    signinAudio
+    _signinAudio
       ..loadAsset('signin-music')
       ..play('signin-music');
-    signinAudio.getInstance().onPlayerStateChanged.listen((state) {
+    _signinAudio.getInstance().onPlayerStateChanged.listen((state) {
       if (state == AudioPlayerState.COMPLETED) {
         print('play signin music again');
-        signinAudio.play('signin-music');
+        _signinAudio.play('signin-music');
       }
     });
   }
@@ -63,7 +104,8 @@ class _SignIn extends State<SignIn>
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
-    signinAudio.stop();
+    _signinAudio.stop();
+    this._controller.dispose();
   }
 
   AppLifecycleState appLifecycleState;
@@ -72,12 +114,12 @@ class _SignIn extends State<SignIn>
     switch (state) {
       case AppLifecycleState.paused:
         setState(() {
-          signinAudio.pause();
+          _signinAudio.pause();
         });
         break;
       case AppLifecycleState.resumed:
         setState(() {
-          signinAudio.play('signin-music');
+          _signinAudio.play('signin-music');
         });
         break;
       default:
@@ -121,125 +163,125 @@ class _SignIn extends State<SignIn>
                 Padding(
                     padding: const EdgeInsets.only(
                         top: 20.0, left: 15.0, right: 15.0),
-                    child: Column(
+                    child: Container(
+                        child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            SizedBox(
-                              height: 30.0,
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        Transform(
+                          transform: Matrix4.translationValues(
+                              this._googleAnimation.value * width, 0.0, 0.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 50.0,
+                            child: RaisedButton(
+                              color: Color(0xFFDF513B),
+                              splashColor: Colors.deepPurple[100],
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0)),
+                              child: Text('Login with Google',
+                                  textDirection: TextDirection.ltr,
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 18.0)),
+                              onPressed: () async {
+                                bool isConnect = await this._checkConnect();
+                                if (isConnect) {
+                                  try {
+                                    final GoogleSignInAccount googleUser =
+                                        await _googleSignIn.signIn();
+                                    final GoogleSignInAuthentication
+                                        googleAuth =
+                                        await googleUser.authentication;
+                                    final AuthCredential credential =
+                                        GoogleAuthProvider.getCredential(
+                                            accessToken: googleAuth.accessToken,
+                                            idToken: googleAuth.idToken);
+                                    _socialUser = await _auth
+                                        .signInWithCredential(credential);
+                                    //   Navigator.push(context, MaterialPageRoute(builder: (context) => Home(googleAccount: googleAccount)));
+                                    final prefs =
+                                        await SharedPreferences.getInstance();
+                                    // set data
+                                    prefs.setString('userID', _socialUser.uid);
+                                    prefs.setString('email', _socialUser.email);
+                                    prefs.setString(
+                                        'name', _socialUser.displayName);
+                                    AudioService().stop();
+                                    Navigator.pushNamed(context, '/home',
+                                        arguments: _socialUser);
+                                  } catch (e) {
+                                    print(e);
+                                  }
+                                } else {
+                                  this._showDialog();
+                                }
+                              },
                             ),
-                            Transform(
-                              transform: Matrix4.translationValues(
-                                  this._googleAnimation.value * width,
-                                  0.0,
-                                  0.0),
-                              child: Container(
-                                width: double.infinity,
-                                height: 50.0,
-                                child: RaisedButton(
-                                  color: Color(0xFFDF513B),
-                                  splashColor: Colors.deepPurple[100],
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(10.0)),
-                                  child: Text('Login with Google',
-                                      textDirection: TextDirection.ltr,
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 18.0)),
-                                  onPressed: () async {
-                                    try {
-                                      final GoogleSignInAccount googleUser =
-                                          await _googleSignIn.signIn();
-                                      final GoogleSignInAuthentication
-                                          googleAuth =
-                                          await googleUser.authentication;
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Transform(
+                          transform: Matrix4.translationValues(
+                              this._facebookAnimation.value * width, 0.0, 0.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 50.0,
+                            child: RaisedButton(
+                              color: Color(0xFF3B5998),
+                              splashColor: Colors.deepPurple[100],
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0)),
+                              child: Text('Login with Facebook',
+                                  textDirection: TextDirection.ltr,
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 18.0)),
+                              onPressed: () async {
+                                bool isConnect = await this._checkConnect();
+                                if (isConnect) {
+                                  final result = await this
+                                      ._facebookLogin
+                                      .logInWithReadPermissions(
+                                          ['email', 'public_profile']);
+
+                                  switch (result.status) {
+                                    case FacebookLoginStatus.loggedIn:
                                       final AuthCredential credential =
-                                          GoogleAuthProvider.getCredential(
+                                          FacebookAuthProvider.getCredential(
                                               accessToken:
-                                                  googleAuth.accessToken,
-                                              idToken: googleAuth.idToken);
-                                      socialUser = await _auth
+                                                  result.accessToken.token);
+                                      _socialUser = await _auth
                                           .signInWithCredential(credential);
-                                      //   Navigator.push(context, MaterialPageRoute(builder: (context) => Home(googleAccount: googleAccount)));
                                       final prefs =
                                           await SharedPreferences.getInstance();
-                                      // set data
-                                      prefs.setString('userID', socialUser.uid);
                                       prefs.setString(
-                                          'email', socialUser.email);
+                                          'userID', _socialUser.uid);
                                       prefs.setString(
-                                          'name', socialUser.displayName);
+                                          'email', _socialUser.email);
+                                      prefs.setString(
+                                          'name', _socialUser.displayName);
                                       AudioService().stop();
                                       Navigator.pushNamed(context, '/home',
-                                          arguments: socialUser);
-                                    } catch (e) {
-                                      print(e);
-                                    }
-                                  },
-                                ),
-                              ),
+                                          arguments: _socialUser);
+                                      break;
+                                    case FacebookLoginStatus.cancelledByUser:
+                                      break;
+                                    case FacebookLoginStatus.error:
+                                      print(result.errorMessage);
+                                      break;
+                                  }
+                                } else {
+                                  this._showDialog();
+                                }
+                              },
                             ),
-                            SizedBox(
-                              height: 10.0,
-                            ),
-                            Transform(
-                              transform: Matrix4.translationValues(
-                                  this._facebookAnimation.value * width,
-                                  0.0,
-                                  0.0),
-                              child: Container(
-                                width: double.infinity,
-                                height: 50.0,
-                                child: RaisedButton(
-                                  color: Color(0xFF3B5998),
-                                  splashColor: Colors.deepPurple[100],
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(10.0)),
-                                  child: Text('Login with Facebook',
-                                      textDirection: TextDirection.ltr,
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 18.0)),
-                                  onPressed: () async {
-                                    final result = await facebookLogin
-                                        .logInWithReadPermissions(
-                                            ['email', 'public_profile']);
-
-                                    switch (result.status) {
-                                      case FacebookLoginStatus.loggedIn:
-                                        final AuthCredential credential =
-                                            FacebookAuthProvider.getCredential(
-                                                accessToken:
-                                                    result.accessToken.token);
-                                        socialUser = await _auth
-                                            .signInWithCredential(credential);
-                                        final prefs = await SharedPreferences
-                                            .getInstance();
-                                        prefs.setString(
-                                            'userID', socialUser.uid);
-                                        prefs.setString(
-                                            'email', socialUser.email);
-                                        prefs.setString(
-                                            'name', socialUser.displayName);
-                                        AudioService().stop();
-                                        Navigator.pushNamed(context, '/home',
-                                            arguments: socialUser);
-                                        break;
-                                      case FacebookLoginStatus.cancelledByUser:
-                                        break;
-                                      case FacebookLoginStatus.error:
-                                        print(result.errorMessage);
-                                        break;
-                                    }
-                                  },
-                                ),
-                              ),
-                            )
-                          ],
+                          ),
                         )
                       ],
-                    )),
+                    ))),
                 SizedBox(
                   height: 20.0,
                 ),
